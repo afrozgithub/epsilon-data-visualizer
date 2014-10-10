@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+	<script src="../libs/d3/d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+	<h1>Testing D3 with Sample JSON data</h1>
+	
+	<script>
+
+		var json = [
+		  {
+			  "packageName": "packageA",
+			  "dependencies": ["packageB", "packageC"],
+			  "contents": [
+			   {
+				  "className": "class1",
+				  "violation": "Duplicate code"
+			   }, 
+			   {
+				   "className": "class2",
+				   "violation": "Dead code"
+			   },
+			   {
+				   "className": "class3",
+				   "violation": null
+			   }]
+		  },
+		  {
+			  "packageName": "packageB",
+			  "dependencies": ["packageC", "packageD"],
+			  "contents": [
+			   {
+				  "className": "class4",
+				  "violation": "Duplicate code"
+			   }, 
+			   {
+				   "className": "class5",
+				   "violation": null
+			   },
+			   {
+				   "className": "class6",
+				   "violation": "Unused catch block"
+			   }]
+		  },
+		  {
+			  "packageName": "packageC",
+			  "dependencies": ["packageA", "packageB"],
+			  "contents": [
+			   {
+				  "className": "class7",
+				  "violation": null
+			   }, 
+			   {
+				   "className": "class8",
+				   "violation": null
+			   }]
+		  }];
+		
+		
+	var body = d3.select("body");
+	
+	var svg = body.append("svg")
+				  .attr("width", 500)
+				  .attr("height", 500)
+				  .style("border", "1px black solid");
+	
+	var nodes = svg.selectAll("circle")
+				   .data(json)
+				   .enter()
+				   .append("circle")
+				   .attr("cx", function(d, i) {
+					   // Arbitrary numbers used to space out the nodes
+					   return (i == 0) ? 30 : 100*i;
+				   })
+				   .attr("cy", function(d, i) {
+					   return (i == 0) ? 30 : 100*i;
+				   })
+				   .attr("r", 15)
+				   .style("fill", function(d) {
+					   var contents = d.contents;
+					   var violationsCount = 0;
+					   for (var i = 0; i < contents.length; i++) {
+						   if (contents[i].violation != null) {
+						   	   violationsCount++;
+						   }
+					   };
+					   return (violationsCount > 0) ? "red" : "black";
+				   });
+				
+	</script>
+	
+</body>
+</html>
