@@ -1,0 +1,50 @@
+[ {
+			"packageName" : "packageA",
+			"dependencies" : [ "packageB", "packageC" ],
+			"contents" : [ {
+				"className" : "class1",
+				"violation" : "Duplicate code"
+			}, {
+				"className" : "class2",
+				"violation" : "Dead code"
+			}, {
+				"className" : "class3",
+				"violation" : null
+			} ]
+		}, {
+			"packageName" : "packageB",
+			"dependencies" : [ "packageC", "packageA" ],
+			"contents" : [ {
+				"className" : "class4",
+				"violation" : "Duplicate code"
+			}, {
+				"className" : "class5",
+				"violation" : null
+			}, {
+				"className" : "class6",
+				"violation" : "Unused catch block"
+			} ]
+		}, {
+			"packageName" : "packageC",
+			"dependencies" : [ "packageA", "packageB" ],
+			"contents" : [ {
+				"className" : "class7",
+				"violation" : null
+			}, {
+				"className" : "class8",
+				"violation" : null
+			} ]
+		}, {
+			"packageName" : "packageD",
+			"dependencies" : [],
+			"contents" : [ {
+				"className" : "class8",
+				"violation" : "Duplicate code"
+			}, {
+				"className" : "class9",
+				"violation" : null
+			}, {
+				"className" : "class0",
+				"violation" : "Unused catch block"
+			} ]
+		} ]
