@@ -40,7 +40,7 @@
 </head>
 <body>
 	<h1>Testing D3 with Sample JSON data</h1>
-	<p id="info">Loading…</p>
+	<p id="info">Loading...</p>
 	<p id="chart"></p>
 
 	<script>
@@ -99,6 +99,22 @@
 
 		  console.log("links == ");
 		  console.log(links);
+		  
+		  // Violations
+		  nodes.forEach(function(source) {
+			var i = 0;
+			var j = 0;
+			var temp = nodes[i].contents;
+			temp.forEach(function(source) {
+				console.log(temp[j].className);
+				console.log(temp[j].violation);
+				j++
+			});
+			i++;
+		  });
+
+		  console.log("violations == ");
+		  console.log();		  
 		  
 		  // Determine the type of each node, based on incoming and outgoing links.
 		  nodes.forEach(function(node) {
