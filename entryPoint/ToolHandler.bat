@@ -1,0 +1,6 @@
+ECHO "Starting Tool Handler"
+ECHO "Run JDepend on codebase to produce XML"
+ECHO "Run PMD on codebase to produce XML"
+ECHO "Call JDependParser with XML to produce JSON"
+ECHO "Call PMDParser with JSON and XML to produce JSON"
+ECHO "Call view with JSON"
