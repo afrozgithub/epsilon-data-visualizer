@@ -1,0 +1,14 @@
+[ {
+"packageName" : "com.android.insecurebankv2",
+"dependencies" : [ "packageB", "packageC" ],
+"contents" : []
+}, {
+"packageName" : "com.android.insecurebankv3",
+"dependencies" : [ "packageC", "packageA" ],
+"contents" : []
+},
+{
+"packageName" : "com.android.insecurebankv4",
+"dependencies" : [ "packageD", "packageE" ],
+"contents" : []
+}  ]
