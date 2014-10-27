@@ -35,12 +35,22 @@
 	stroke: red;
 	stroke-width: 3px;
 }
+
+.buffer{
+	height: 100px;
+
+}
+
 </style>
 
 </head>
 <body>
 	<h1>Testing D3 with Sample JSON data</h1>
 	<p id="info">Loading...</p>
+	<div class = "buffer">
+	<p id="violations1"></p>
+	<p id="violations2"></p>
+	</div>
 	<p id="chart"></p>
 
 	<script>
@@ -101,20 +111,20 @@
 		  console.log(links);
 		  
 		  // Violations
-		  nodes.forEach(function(source) {
-			var i = 0;
-			var j = 0;
-			var temp = nodes[i].contents;
-			temp.forEach(function(source) {
-				console.log(temp[j].className);
-				console.log(temp[j].violation);
-				j++
-			});
-			i++;
-		  });
-
-		  console.log("violations == ");
-		  console.log();		  
+// 		  nodes.forEach(function(source) {
+// 			var i = 0;
+// 			var j = 0;
+// 			var temp = nodes[i].contents;
+// 			temp.forEach(function(source) {
+// 				console.log(temp[j].className);
+// 				console.log(temp[j].violation);
+// 				j++
+// 			});
+// 			i++;
+// 		  });
+// 
+// 		  console.log("violations == ");
+// 		  console.log();		  
 		  
 		  // Determine the type of each node, based on incoming and outgoing links.
 		  nodes.forEach(function(node) {
@@ -220,7 +230,32 @@
 		    svg.selectAll(".link").classed("active", function(p) { return p.source === d || p.target === d; });
 		    d3.select(this).classed("active", true);
 		    info.text(d.node.packageName);
+		    
+		    
+		    
+		    
+		    
+			var j = 0;
+			
+			var temp = d.node.contents;
+			console.log(temp);
+			temp.forEach(function(source) {
+				console.log(temp[j].className);
+				console.log(temp[j].violation);
+				if (temp[j].violation != null){				
+					
+// 					d3.select("#violations1").text("hello");
+					
+					d3.select("#violations1").text(temp[j].className);
+					
+					d3.select("#violations2").text(temp[j].violation);
+				}
+
+				j++
+			});
+
 		  }
+
 
 		  // Clear any highlighted nodes or links.
 		  function mouseout() {
