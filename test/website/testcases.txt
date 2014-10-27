@@ -1,0 +1,64 @@
+Test Cases for the website visualization:
+
+1) Verify that the number of nodes in the hive plot equals to the number of packages defined in the JSON
+   
+  Steps:
+	1. Count the total number of JSON objects in the JSON file
+	2. Count the total number of distinct coloured nodes in the hive plot 
+   
+  Expected Result:
+	1. Total number of JSON objects in the JSON file == Total number of distinct coloured nodes in the hive plot
+
+  Actual Result:
+	1. Twice as many nodes are being shown, 2 nodes for each package. [FAIL]
+
+  Bug report: Issue #15 
+
+
+2) Verify that the node links reflect the dependencies as defined in the JSON
+  
+  Steps:
+	1. Compare the links between nodes with the dependencies defined in the JSON
+   
+  Expected Result:
+	1. The links in the hive plot correspond to the defined dependencies in the JSON
+
+  Actual Result:
+	1. Same as expected [PASS]
+
+
+3) Default text displays in the top left corner describing hive plot
+  
+  Steps:
+	1. Open web browser to site.html
+   
+  Expected Result:
+	1. Top left text displays: ���Showing {} dependencies among {} packages���
+
+  Actual Result:
+	1. Same as expected [PASS]
+
+
+4) Default text shows package name when a node is moused over
+  
+  Steps:
+	1. Mouseover a node
+   
+  Expected Result:
+	1. Top left text ���Showing {} dependencies among {} packages��� changes to the node���s package name
+
+  Actual Result:
+	1. Same as expected [PASS]
+
+
+5) Default text shows package dependencies when a link is moused over
+  
+  Steps:
+	1. Mouseover a link
+   
+  Expected Result:
+	1. Top left text ���Showing {#} dependencies among {#} packages��� changes to ���{package _} DEPENDS ON {package _}���
+
+  Actual Result:
+	1. Same as expected [PASS]
+ 
