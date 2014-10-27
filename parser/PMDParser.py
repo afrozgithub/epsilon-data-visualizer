@@ -5,11 +5,11 @@ import json
 # filename = sys.argv[1]
 
 # Take in the JSON file outputted from JDepend parser
-with open('TEST.json') as json_file:
+with open('JDependParserOutputMock.json') as json_file:
 	json_data = json.load(json_file)
 
 # Take in a xml file outputted from PMD
-xml_data = ET.parse('TEST.xml')
+xml_data = ET.parse('PMDOutputMock.xml')
 root = xml_data.getroot()
 
 # Parse out the packageName, the class name, and the violated rule from the xml 

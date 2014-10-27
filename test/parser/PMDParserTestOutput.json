@@ -1,0 +1,41 @@
+[
+{
+"packageName": "com.android.insecurebankv2",
+"contents": [
+{
+"className": "ChangePassword$RequestChangePasswordTask",
+"violation": "CollapsibleIfStatements"
+}
+],
+"dependencies": [
+"packageB",
+"packageC"
+]
+},
+{
+"packageName": "com.android.insecurebankv3",
+"contents": [
+{
+"className": "DoLogin$RequestTask",
+"violation": "EmptyStatementNotInLoop"
+}
+],
+"dependencies": [
+"packageC",
+"packageA"
+]
+},
+{
+"packageName": "com.android.insecurebankv4",
+"contents": [
+{
+"className": "DoTransfer$RequestDoGets2",
+"violation": "CollapsibleIfStatements"
+}
+],
+"dependencies": [
+"packageD",
+"packageE"
+]
+}
+]
