@@ -1,6 +1,6 @@
 [ {
 			"packageName" : "packageA",
-			"dependencies" : [ "packageB", "packageC" ],
+			"dependencies" : [ "packageB", "packageC", "packageD"],
 			"contents" : [ {
 				"className" : "class1",
 				"violation" : "Duplicate code"
@@ -13,7 +13,7 @@
 			} ]
 		}, {
 			"packageName" : "packageB",
-			"dependencies" : [ "packageC", "packageA" ],
+			"dependencies" : [ "packageC", "packageA"],
 			"contents" : [ {
 				"className" : "class4",
 				"violation" : "Duplicate code"
@@ -36,6 +36,19 @@
 			} ]
 		}, {
 			"packageName" : "packageD",
+			"dependencies" : [],
+			"contents" : [ {
+				"className" : "class8",
+				"violation" : "Duplicate code"
+			}, {
+				"className" : "class9",
+				"violation" : null
+			}, {
+				"className" : "class0",
+				"violation" : "Unused catch block"
+			} ]
+		}, {
+			"packageName" : "packageE",
 			"dependencies" : [],
 			"contents" : [ {
 				"className" : "class8",
