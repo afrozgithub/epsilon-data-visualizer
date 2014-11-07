@@ -85,10 +85,14 @@
 		     
 		  console.log("nodes == ");
 		  console.log(nodes);
+		  alert(JSON.stringify(nodes));
 		  
 		  // Construct an index by node name.
 		  nodes.forEach(function(d) {
 		    d.connectors = [];
+		    console.log("connectors ==");
+		    console.log(d.connectors);	
+		    
 		    nodesByName[d.packageName] = d;
 		    
 		  });
@@ -101,9 +105,22 @@
 		  nodes.forEach(function(source) {
 		    source.dependencies.forEach(function(targetName) {
 		    var target = nodesByName[targetName];
-		      if (!source.source) source.connectors.push(source.source = {node: source, degree: 0});
-		      if (!target.target) target.connectors.push(target.target = {node: target, degree: 0});
-		      links.push({source: source.source, target: target.target});
+// 		    	console.log("source ==");
+// 		    	console.log(source);
+			
+			console.log("Inside foreach loop connectors ==");
+		    console.log(source.connectors);	
+		    	
+		    	//source.connectors.push(source.test);
+		    	
+		    	source.connectors.push({"test":"asdf"});
+// 		    	source.connectors.source.push({node: source, degree: 0});
+		    	
+// 		      if (!source.source) source.connectors.push(source.source = {node: source, degree: 0});
+// 		      if (!target.target) target.connectors.push(target.target = {node: target, degree: 0});
+		      
+		      
+// 		      links.push({source: source.source, target: target.target});
 		    });
 		  });
 

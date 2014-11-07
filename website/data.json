@@ -1,6 +1,6 @@
 [ {
 			"packageName" : "packageA",
-			"dependencies" : [ "packageB", "packageC" ],
+			"dependencies" : [ "packageB", "packageC", "packageD" ],
 			"contents" : [ {
 				"className" : "class1",
 				"violation" : "Duplicate code"
