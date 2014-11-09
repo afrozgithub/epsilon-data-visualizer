@@ -1,6 +1,6 @@
-<!-- -------------------------------------------------------------------- -->
-<!-- Acknowledgments: Code borrowed from: http://bost.ocks.org/mike/hive/ -->
-<!-- -------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------- -->
+<!-- Acknowledgments: Parts of this code is borrowed from: http://bost.ocks.org/mike/hive/ -->
+<!-- ------------------------------------------------------------------------------------- -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -204,24 +204,34 @@
 		      .radius(function(d) { return radius(d.node.index); }))
 		      .on("mouseover", linkMouseover)
 		      .on("mouseout", mouseout);
-
+		  
 		  // Draw the nodes. Note that each node can have up to two connectors,
 		  // representing the source (outgoing) and target (incoming) links.
-		  svg.append("g")
+		 var nodesSel = svg.append("g")
 		      .attr("class", "nodes")
 		    .selectAll(".node")
 		      .data(nodes)
 		    .enter().append("g")
 		      .attr("class", "node")
-		      .style("fill", function(d) { console.log(d.packageName);return color(d.packageName); })
-		    .selectAll("circle")
+		      .style("fill", function(d) { console.log(d.packageName);return color(d.packageName); });
+		  
+		  
+		 console.log("nodesSel==");
+		 console.log(nodesSel);
+		  
+		  
+		 var circlesSel = nodesSel.selectAll("circle")
 		      .data(function(d) { return d.connectors; })
 		    .enter().append("circle")
+		      .attr("class", "testclass")
 		      .attr("transform", function(d) { return "rotate(" + degrees(angle(d.type)) + ")"; })
 		      .attr("cx", function(d) { return radius(d.node.index); })
-		      .attr("r", 4)
+		      .attr("r", 6)
 		      .on("mouseover", nodeMouseover)
 		      .on("mouseout", mouseout);
+		 
+		 console.log("circlesSel==");
+		 console.log(circlesSel);
 
 		  // Highlight the link and connected nodes on mouseover.
 		  function linkMouseover(d) {
@@ -237,10 +247,6 @@
 		    svg.selectAll(".link").classed("active", function(p) { return p.source === d || p.target === d; });
 		    d3.select(this).classed("active", true);
 		    info.text(d.node.packageName);
-		    
-		    
-		    
-		    
 		    
 			var j = 0;
 			
@@ -260,14 +266,39 @@
 
 				j++
 			});
-
 		  }
-
 
 		  // Clear any highlighted nodes or links.
 		  function mouseout() {
 		    svg.selectAll(".active").classed("active", false);
 		    info.text(defaultInfo);
+		  }
+		  
+		  // Light up a node repeatedly if it contains a violation
+		  setInterval(step, 100);
+		  
+		  function step() {
+			  var randNum = Math.floor(Math.random()*(10));
+			  if (randNum > 5) {
+				  // if a node has a violation, then switch to a new color
+			 	 nodesSel.style("fill", function(d) {
+			 		var nodeContents = d.contents;
+					var nodeHasViolation = false;
+					
+			 		nodeContents.forEach(function(nodeContent) {
+			 			if (nodeContent.violation != null) {
+			 				nodeHasViolation = true;
+// 			 				console.log(nodeContent.violation);
+			 			}
+			 		});
+			 		 
+			 		 return nodeHasViolation ? "yellow" : color(d.packageName);
+			 	 });
+			  }
+			  else {
+				 // return to original color 
+				 nodesSel.style("fill", function(d) { return color(d.packageName); });
+			  }
 		  }
 		});
 	
@@ -277,7 +308,6 @@
 		// This class is modeled after d3.svg.chord.
 		function link() {
 			console.log("inside link()");
-			
 			
 		  var source = function(d) { return d.source; },
 		      target = function(d) { return d.target; },
@@ -360,7 +390,8 @@
 		function degrees(radians) {
 		  return radians / Math.PI * 180 - 90;
 		}
-
+		
 	</script>
+	
 </body>
 </html>
