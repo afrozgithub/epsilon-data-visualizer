@@ -26,8 +26,14 @@
 }
 
 .buffer{
-	width: 80%; 
+	width: 70%; 
 	height: 100px;
 	position: fixed;
 	text-align: right;
+}
+
+body {
+	margin: auto;
+	margin-bottom: 100px;
+	width: 70%;
 }
