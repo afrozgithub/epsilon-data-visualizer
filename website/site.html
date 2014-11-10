@@ -239,29 +239,59 @@
 		  }
 		  
 		  // Light up a node repeatedly if it contains a violation
-		  setInterval(step, 100);
-		  
+		  var num = 1;
+		  var counter = 0;
+		  setInterval(step, 2000);
+
 		  function step() {
-			  var randNum = Math.floor(Math.random()*(10));
-			  if (randNum > 5) {
+
+			if(num == 1){
 				  // if a node has a violation, then switch to a new color
 			 	 nodesSel.style("fill", function(d) {
 			 		var nodeContents = d.contents;
 					var nodeHasViolation = false;
+					var violationColor = color(d.packageName);
 					
 			 		nodeContents.forEach(function(nodeContent) {
+// 						var randNum = Math.floor(Math.random()*(2));
+// 						if (randNum > 50)
 			 			if (nodeContent.violation != null) {
+			 				
+			 				if (counter == 0 && nodeContent.violation == "Unused catch block"){
+			 					violationColor = "pink";
+			 				} 
+			 			    else if (counter == 1 && nodeContent.violation == "Duplicate Code") {
+			 			    	violationColor = "yellow";
+			 			    }
+			 			
+			 				
+// 			 				else if (counter == 1 && nodeContent.violation == "Duplicate code"){
+// 			 					violationColor = "yellow";
+// 			 					counter = 0;
+// 			 				}
+		 					else{
+			 					
+ 			 				}
 			 				nodeHasViolation = true;
 // 			 				console.log(nodeContent.violation);
 			 			}
 			 		});
-			 		 
-			 		 return nodeHasViolation ? "yellow" : color(d.packageName);
+			 		
+
+			 		 return nodeHasViolation ? violationColor : color(d.packageName);
 			 	 });
+			 		if (counter < 1)  {
+			 			counter++;
+			 		} else {
+			 			counter = 0;
+			 		}
+			 		 
+				  num = 0;
 			  }
 			  else {
 				 // return to original color 
 				 nodesSel.style("fill", function(d) { return color(d.packageName); });
+				 num = 1;
 			  }
 		  }
 		});
