@@ -239,13 +239,20 @@
 		  }
 		  
 		  // Light up a node repeatedly if it contains a violation
-		  var num = 1;
-		  var counter = 0;
+		  var lightUpViolations = true;
+		  var stepCounter = 0;
+		  
+		// Declare key-value pairs for violation-color 
+	 	  var violationColorLookup = new Array();
+	 	  violationColorLookup["Duplicate code"] = "yellow";
+	 	  violationColorLookup["Dead code"] = "pink";
+	 	  violationColorLookup["Unused catch block"] = "brown";
+		  
 		  setInterval(step, 2000);
 
 		  function step() {
 
-			if(num == 1){
+			if (lightUpViolations == true){
 				  // if a node has a violation, then switch to a new color
 			 	 nodesSel.style("fill", function(d) {
 			 		var nodeContents = d.contents;
@@ -253,45 +260,41 @@
 					var violationColor = color(d.packageName);
 					
 			 		nodeContents.forEach(function(nodeContent) {
-// 						var randNum = Math.floor(Math.random()*(2));
-// 						if (randNum > 50)
 			 			if (nodeContent.violation != null) {
 			 				
-			 				if (counter == 0 && nodeContent.violation == "Unused catch block"){
-			 					violationColor = "pink";
-			 				} 
-			 			    else if (counter == 1 && nodeContent.violation == "Duplicate Code") {
-			 			    	violationColor = "yellow";
-			 			    }
-			 			
-			 				
-// 			 				else if (counter == 1 && nodeContent.violation == "Duplicate code"){
-// 			 					violationColor = "yellow";
-// 			 					counter = 0;
-// 			 				}
-		 					else{
+			 				if (stepCounter == 0 && nodeContent.violation == "Duplicate code") {
+			 					violationColor = violationColorLookup["Duplicate code"]; 
+			 					console.log("step == 0");
+			 					nodeHasViolation = true;
 			 					
- 			 				}
-			 				nodeHasViolation = true;
-// 			 				console.log(nodeContent.violation);
+			 				}
+			 				else if (stepCounter == 1 && nodeContent.violation == "Dead code") {
+			 					violationColor = violationColorLookup["Dead code"]; 
+			 					console.log("step == 1");
+			 					nodeHasViolation = true;
+			 				}
+			 				else if (stepCounter == 2 && nodeContent.violation == "Unused catch block") {
+			 					violationColor = violationColorLookup["Unused catch block"]; 
+			 					console.log("step == 2");
+			 					nodeHasViolation = true;
+			 				} 
 			 			}
 			 		});
 			 		
-
 			 		 return nodeHasViolation ? violationColor : color(d.packageName);
 			 	 });
-			 		if (counter < 1)  {
-			 			counter++;
-			 		} else {
-			 			counter = 0;
-			 		}
-			 		 
-				  num = 0;
+				  
+			 	stepCounter++;
+		 		if (stepCounter > 2) {
+		 			// reset counter to 0 since we only have max 3 violations
+		 			stepCounter = 0;
+		 		}
+		 		lightUpViolations = false;
 			  }
 			  else {
-				 // return to original color 
+				 // all nodes return to original color 
 				 nodesSel.style("fill", function(d) { return color(d.packageName); });
-				 num = 1;
+				 lightUpViolations = true;
 			  }
 		  }
 		});
