@@ -1,0 +1,184 @@
+[
+{
+"contents": [],
+"packageName": "android.app",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.appwidget",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.content",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.content.pm",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.content.res",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.database",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.graphics",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.graphics.drawable",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.media",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.net",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.net.http",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.os",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.provider",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.util",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.view",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "android.widget",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "com.squareup.okhttp",
+"dependecies": "[]"
+},
+{
+"contents": [
+{
+"className": "AssetRequestHandler",
+"violation": "UselessParentheses"
+},
+{
+"className": "AssetRequestHandler",
+"violation": "UselessParentheses"
+},
+{
+"className": "BitmapHunter",
+"violation": "UselessParentheses"
+},
+{
+"className": "ContactsPhotoRequestHandler",
+"violation": "UselessParentheses"
+},
+{
+"className": "LruCache",
+"violation": "UselessParentheses"
+},
+{
+"className": "MediaStoreRequestHandler",
+"violation": "UselessParentheses"
+},
+{
+"className": "NetworkRequestHandler",
+"violation": "UselessParentheses"
+},
+{
+"className": "OkHttpDownloader",
+"violation": "EmptyCatchBlock"
+},
+{
+"className": "Picasso",
+"violation": "DoubleCheckedLocking"
+},
+{
+"className": "UrlConnectionDownloader",
+"violation": "EmptyCatchBlock"
+},
+{
+"className": "Utils",
+"violation": "EmptyCatchBlock"
+},
+{
+"className": "Utils",
+"violation": "EmptyCatchBlock"
+},
+{
+"className": "Utils",
+"violation": "EmptyCatchBlock"
+},
+{
+"className": "Utils",
+"violation": "EmptyCatchBlock"
+}
+],
+"packageName": "com.squareup.picasso",
+"dependecies": "['android.app', 'android.appwidget', 'android.content', 'android.content.pm', 'android.content.res', 'android.database', 'android.graphics', 'android.graphics.drawable', 'android.media', 'android.net', 'android.net.http', 'android.os', 'android.provider', 'android.util', 'android.view', 'android.widget', 'com.squareup.okhttp', 'java.io', 'java.lang', 'java.lang.ref', 'java.net', 'java.util', 'java.util.concurrent', 'java.util.concurrent.atomic']"
+},
+{
+"contents": [],
+"packageName": "java.io",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "java.lang",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "java.lang.ref",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "java.net",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "java.util",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "java.util.concurrent",
+"dependecies": "[]"
+},
+{
+"contents": [],
+"packageName": "java.util.concurrent.atomic",
+"dependecies": "[]"
+}
+]
