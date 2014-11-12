@@ -1,58 +1,22 @@
-<!-- -------------------------------------------------------------------- -->
-<!-- Acknowledgments: Code borrowed from: http://bost.ocks.org/mike/hive/ -->
-<!-- -------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------- -->
+<!-- Acknowledgments: Parts of this code is borrowed from: http://bost.ocks.org/mike/hive/ -->
+<!-- ------------------------------------------------------------------------------------- -->
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="../libs/d3/d3.min.js" charset="utf-8"></script>
-
-<style>
-.axis {
-	stroke: #000;
-	stroke-width: 1.5px;
-}
-
-.node circle {
-	stroke: #000;
-}
-
-.link {
-	fill: none;
-	stroke: #999;
-	stroke-width: 1.5px;
-	stroke-opacity: .3;
-}
-
-.link.active {
-	stroke: red;
-	stroke-width: 2px;
-	stroke-opacity: 1;
-}
-
-.node circle.active {
-	stroke: red;
-	stroke-width: 3px;
-}
-
-.buffer{
-	width: 80%; 
-	height: 100px;
-	position: fixed;
-	text-align: right;
-}
-
-</style>
-
 </head>
+
 <body>
 	<h1>Hive Plot in Development</h1>
 	<h3>North axis = shows only the source nodes (i.e. other nodes do not point to these nodes)</h3>
 	<h3>South West axis = shows only target nodes (i.e. other nodes point to these nodes)</h3>
 	<h3>East & South East axis = shows that these nodes are considered both source and target (i.e. SE-axis nodes points to E-axis nodes)</h3>
-	
-	<div class = "buffer">
+
+	<div class="buffer">
 		<p id="info">Loading...</p>
 		<p id="violations1"></p>
 		<p id="violations2"></p>
@@ -204,24 +168,34 @@
 		      .radius(function(d) { return radius(d.node.index); }))
 		      .on("mouseover", linkMouseover)
 		      .on("mouseout", mouseout);
-
+		  
 		  // Draw the nodes. Note that each node can have up to two connectors,
 		  // representing the source (outgoing) and target (incoming) links.
-		  svg.append("g")
+		 var nodesSel = svg.append("g")
 		      .attr("class", "nodes")
 		    .selectAll(".node")
 		      .data(nodes)
 		    .enter().append("g")
 		      .attr("class", "node")
-		      .style("fill", function(d) { console.log(d.packageName);return color(d.packageName); })
-		    .selectAll("circle")
+		      .style("fill", function(d) { console.log(d.packageName);return color(d.packageName); });
+		  
+		  
+		 console.log("nodesSel==");
+		 console.log(nodesSel);
+		  
+		  
+		 var circlesSel = nodesSel.selectAll("circle")
 		      .data(function(d) { return d.connectors; })
 		    .enter().append("circle")
+		      .attr("class", "testclass")
 		      .attr("transform", function(d) { return "rotate(" + degrees(angle(d.type)) + ")"; })
 		      .attr("cx", function(d) { return radius(d.node.index); })
-		      .attr("r", 4)
+		      .attr("r", 6)
 		      .on("mouseover", nodeMouseover)
 		      .on("mouseout", mouseout);
+		 
+		 console.log("circlesSel==");
+		 console.log(circlesSel);
 
 		  // Highlight the link and connected nodes on mouseover.
 		  function linkMouseover(d) {
@@ -237,10 +211,6 @@
 		    svg.selectAll(".link").classed("active", function(p) { return p.source === d || p.target === d; });
 		    d3.select(this).classed("active", true);
 		    info.text(d.node.packageName);
-		    
-		    
-		    
-		    
 		    
 			var j = 0;
 			
@@ -260,14 +230,72 @@
 
 				j++
 			});
-
 		  }
-
 
 		  // Clear any highlighted nodes or links.
 		  function mouseout() {
 		    svg.selectAll(".active").classed("active", false);
 		    info.text(defaultInfo);
+		  }
+		  
+		  // Light up a node repeatedly if it contains a violation
+		  var lightUpViolations = true;
+		  var stepCounter = 0;
+		  
+		// Declare key-value pairs for violation-color 
+	 	  var violationColorLookup = new Array();
+	 	  violationColorLookup["Duplicate code"] = "yellow";
+	 	  violationColorLookup["Dead code"] = "pink";
+	 	  violationColorLookup["Unused catch block"] = "brown";
+		  
+		  setInterval(step, 2000);
+
+		  function step() {
+
+			if (lightUpViolations == true){
+				  // if a node has a violation, then switch to a new color
+			 	 nodesSel.style("fill", function(d) {
+			 		var nodeContents = d.contents;
+					var nodeHasViolation = false;
+					var violationColor = color(d.packageName);
+					
+			 		nodeContents.forEach(function(nodeContent) {
+			 			if (nodeContent.violation != null) {
+			 				
+			 				if (stepCounter == 0 && nodeContent.violation == "Duplicate code") {
+			 					violationColor = violationColorLookup["Duplicate code"]; 
+			 					console.log("step == 0");
+			 					nodeHasViolation = true;
+			 					
+			 				}
+			 				else if (stepCounter == 1 && nodeContent.violation == "Dead code") {
+			 					violationColor = violationColorLookup["Dead code"]; 
+			 					console.log("step == 1");
+			 					nodeHasViolation = true;
+			 				}
+			 				else if (stepCounter == 2 && nodeContent.violation == "Unused catch block") {
+			 					violationColor = violationColorLookup["Unused catch block"]; 
+			 					console.log("step == 2");
+			 					nodeHasViolation = true;
+			 				} 
+			 			}
+			 		});
+			 		
+			 		 return nodeHasViolation ? violationColor : color(d.packageName);
+			 	 });
+				  
+			 	stepCounter++;
+		 		if (stepCounter > 2) {
+		 			// reset counter to 0 since we only have max 3 violations
+		 			stepCounter = 0;
+		 		}
+		 		lightUpViolations = false;
+			  }
+			  else {
+				 // all nodes return to original color 
+				 nodesSel.style("fill", function(d) { return color(d.packageName); });
+				 lightUpViolations = true;
+			  }
 		  }
 		});
 	
@@ -277,7 +305,6 @@
 		// This class is modeled after d3.svg.chord.
 		function link() {
 			console.log("inside link()");
-			
 			
 		  var source = function(d) { return d.source; },
 		      target = function(d) { return d.target; },
@@ -360,7 +387,8 @@
 		function degrees(radians) {
 		  return radians / Math.PI * 180 - 90;
 		}
-
+		
 	</script>
+	
 </body>
 </html>
