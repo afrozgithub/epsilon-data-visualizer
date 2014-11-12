@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="mct-packaging" default="create-version" basedir="..">
+
+	<property name="project.build.directory" location="target" />
+	<property name="buildNumber" value="0" />
+
+	<target name="create-version" depends="package-mct-dev-toolkit">
+
+		<mkdir dir="${project.build.directory}" />
+		<propertyfile file="${project.build.directory}/version.properties">
+			<entry key="mct.version" value="${version}" />
+			<entry key="mct.build" value="${buildNumber}" />
+			<entry key="mct.revision" value="${revision}" />
+			<entry key="mct.db.schema_id" value="${schema}" />
+		</propertyfile>
+	</target>
+
+	<target name="package-mct-dev-toolkit">	
+		<property name="mct-dev-toolkit-dest.dir" value="${project.build.directory}/mct-dev-toolkit" />
+		
+		<property name="exampleplugin.dir" value="../exampleplugin" />
+			
+		
+	</target>
+	
+</project>
