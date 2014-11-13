@@ -31,11 +31,11 @@
 	    var OUTER_RADIUS = 640;
 	    var MAJOR_ANGLE = 2 * Math.PI / 3;
 	    var MINOR_ANGLE = 1 * Math.PI / 12;
-		
+
 		var DUPLICATE_CODE = "Duplicate code";
 		var DEAD_CODE = "Dead code";
 		var UNUSED_CATCH_BLOCK = "Unused catch block";
-		
+
 		var angle = d3.scale.ordinal()
 		    .domain(["source", "source-target", "target-source", "target"])
 		    .range([0, MAJOR_ANGLE - MINOR_ANGLE, MAJOR_ANGLE + MINOR_ANGLE, 2 * MAJOR_ANGLE]);
@@ -224,12 +224,12 @@
 		  // Light up a node repeatedly if it contains a violation
 		  var lightUpViolations = true;
 		  var stepCounter = 0;
-		  
+
 		  // Declare key-value pairs for violation-color
 	 	  var violationColorLookup = new Array();
-	 	  violationColorLookup[DUPLICATE_CODE] = "yellow";
-	 	  violationColorLookup[DEAD_CODE] = "pink";
-	 	  violationColorLookup[UNUSED_CATCH_BLOCK] = "brown";
+	 	  violationColorLookup[DUPLICATE_CODE] = "Yellow";
+	 	  violationColorLookup[DEAD_CODE] =  "Fuchsia";
+	 	  violationColorLookup[UNUSED_CATCH_BLOCK] = "Cyan" ; 
 
 		  setInterval(step, 2000);
 
@@ -289,7 +289,7 @@
 			  }
 		  }
 		});
-		
+
 		//Light Up helper function
 		function violationText(colour, violation){
 		  	d3.select("#violationsFlash").text(violation + " displayed in " + colour);
