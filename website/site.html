@@ -102,6 +102,8 @@
 		  defaultInfo = "Showing " + formatNumber(links.length) + " dependencies among " + formatNumber(nodes.length) + " packages.";
 
 		  var info = d3.select("#info").text(defaultInfo);
+		  var violations1 = d3.select("#violations1").text("");
+		  var violations2 = d3.select("#violations2").text("");
 
 		  // Normally, Hive Plots sort nodes by degree along each axis. However, since
 		  // this example visualizes a package hierarchy, we get more interesting
@@ -208,8 +210,8 @@
 				console.log(temp[j].className);
 				console.log(temp[j].violation);
 				if (temp[j].violation != null){
-					d3.select("#violations1").text(temp[j].className);
-					d3.select("#violations2").text(temp[j].violation);
+					violations1.text(temp[j].className);
+					violations2.text(temp[j].violation);
 				}
 				j++
 			});
@@ -219,6 +221,8 @@
 		  function mouseout() {
 		    svg.selectAll(".active").classed("active", false);
 		    info.text(defaultInfo);
+		    violations1.text("");
+		    violations2.text("");
 		  }
 
 		  // Light up a node repeatedly if it contains a violation
