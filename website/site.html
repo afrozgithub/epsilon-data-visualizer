@@ -25,27 +25,31 @@
 	<p id="chart"></p>
 
 	<script>
-		var width = 960,
-	    height = 850,
-	    innerRadius = 40,
-	    outerRadius = 640,
-	    majorAngle = 2 * Math.PI / 3,
-	    minorAngle = 1 * Math.PI / 12;
-
+		var WIDTH = 960;
+	    var HEIGHT = 850;
+	    var INNER_RADIUS = 40;
+	    var OUTER_RADIUS = 640;
+	    var MAJOR_ANGLE = 2 * Math.PI / 3;
+	    var MINOR_ANGLE = 1 * Math.PI / 12;
+		
+		var DUPLICATE_CODE = "Duplicate code";
+		var DEAD_CODE = "Dead code";
+		var UNUSED_CATCH_BLOCK = "Unused catch block";
+		
 		var angle = d3.scale.ordinal()
 		    .domain(["source", "source-target", "target-source", "target"])
-		    .range([0, majorAngle - minorAngle, majorAngle + minorAngle, 2 * majorAngle]);
+		    .range([0, MAJOR_ANGLE - MINOR_ANGLE, MAJOR_ANGLE + MINOR_ANGLE, 2 * MAJOR_ANGLE]);
 
 		var radius = d3.scale.linear()
-	   	 .range([innerRadius, outerRadius]);
+	   	 .range([INNER_RADIUS, OUTER_RADIUS]);
 
 		var color = d3.scale.category10();
 
 		var svg = d3.select("#chart").append("svg")
-		    .attr("width", width)
-		    .attr("height", height)
+		    .attr("width", WIDTH)
+		    .attr("height", HEIGHT)
 		  .append("g")
-		    .attr("transform", "translate(" + outerRadius * .20 + "," + outerRadius * .57 + ")");
+		    .attr("transform", "translate(" + OUTER_RADIUS * .20 + "," + OUTER_RADIUS * .57 + ")");
 
 		// Load the data and display the plot!
 		d3.json("data.json", function(nodes) {
@@ -66,7 +70,6 @@
 		  console.log("nodesByName");
 		  console.log(nodesByName);
 
-
 		  // Convert the import lists into links with sources and targets.
 		  nodes.forEach(function(source) {
 		    source.dependencies.forEach(function(targetName) {
@@ -79,22 +82,6 @@
 
 		  console.log("links == ");
 		  console.log(links);
-
-		  // Violations
-// 		  nodes.forEach(function(source) {
-// 			var i = 0;
-// 			var j = 0;
-// 			var temp = nodes[i].contents;
-// 			temp.forEach(function(source) {
-// 				console.log(temp[j].className);
-// 				console.log(temp[j].violation);
-// 				j++
-// 			});
-// 			i++;
-// 		  });
-//
-// 		  console.log("violations == ");
-// 		  console.log();
 
 		  // Determine the type of each node, based on incoming and outgoing links.
 		  nodes.forEach(function(node) {
@@ -221,14 +208,9 @@
 				console.log(temp[j].className);
 				console.log(temp[j].violation);
 				if (temp[j].violation != null){
-
-// 					d3.select("#violations1").text("hello");
-
 					d3.select("#violations1").text(temp[j].className);
-
 					d3.select("#violations2").text(temp[j].violation);
 				}
-
 				j++
 			});
 		  }
@@ -239,29 +221,17 @@
 		    info.text(defaultInfo);
 		  }
 
-
-
-			//Light Up helper function
-
-			function violationText(colour, violation){
-
-					d3.select("#violationsFlash").text(violation + " displayed in " + colour);
-
-			}
-
 		  // Light up a node repeatedly if it contains a violation
 		  var lightUpViolations = true;
 		  var stepCounter = 0;
-
-		// Declare key-value pairs for violation-color
+		  
+		  // Declare key-value pairs for violation-color
 	 	  var violationColorLookup = new Array();
-	 	  violationColorLookup["Duplicate code"] = "yellow";
-	 	  violationColorLookup["Dead code"] = "pink";
-	 	  violationColorLookup["Unused catch block"] = "brown";
+	 	  violationColorLookup[DUPLICATE_CODE] = "yellow";
+	 	  violationColorLookup[DEAD_CODE] = "pink";
+	 	  violationColorLookup[UNUSED_CATCH_BLOCK] = "brown";
 
 		  setInterval(step, 2000);
-
-
 
 		  function step() {
 
@@ -275,24 +245,24 @@
 			 		nodeContents.forEach(function(nodeContent) {
 			 			if (nodeContent.violation != null) {
 
-			 				if (stepCounter == 0 && nodeContent.violation == "Duplicate code") {
-			 					violationColor = violationColorLookup["Duplicate code"];
+			 				if (stepCounter == 0 && nodeContent.violation == DUPLICATE_CODE) {
+			 					violationColor = violationColorLookup[DUPLICATE_CODE];
 			 					console.log("step == 0");
 			 					nodeHasViolation = true;
 
 								violationText(violationColor, nodeContent.violation);
 
 			 				}
-			 				else if (stepCounter == 1 && nodeContent.violation == "Dead code") {
-			 					violationColor = violationColorLookup["Dead code"];
+			 				else if (stepCounter == 1 && nodeContent.violation == DEAD_CODE) {
+			 					violationColor = violationColorLookup[DEAD_CODE];
 			 					console.log("step == 1");
 			 					nodeHasViolation = true;
 
 								violationText(violationColor, nodeContent.violation);
 
 			 				}
-			 				else if (stepCounter == 2 && nodeContent.violation == "Unused catch block") {
-			 					violationColor = violationColorLookup["Unused catch block"];
+			 				else if (stepCounter == 2 && nodeContent.violation == UNUSED_CATCH_BLOCK) {
+			 					violationColor = violationColorLookup[UNUSED_CATCH_BLOCK];
 			 					console.log("step == 2");
 			 					nodeHasViolation = true;
 
@@ -301,9 +271,6 @@
 			 				}
 			 			}
 			 		});
-
-
-
 			 		 return nodeHasViolation ? violationColor : color(d.packageName);
 			 	 });
 
@@ -319,13 +286,14 @@
 				 nodesSel.style("fill", function(d) { return color(d.packageName); });
 				 lightUpViolations = true;
 					d3.select("#violationsFlash").text("");
-
 			  }
 		  }
 		});
-
-
-
+		
+		//Light Up helper function
+		function violationText(colour, violation){
+		  	d3.select("#violationsFlash").text(violation + " displayed in " + colour);
+	    }
 
 		// A shape generator for Hive links, based on a source and a target.
 		// The source and target are defined in polar coordinates (angle and radius).
