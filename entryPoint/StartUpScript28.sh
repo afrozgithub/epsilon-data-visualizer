@@ -15,7 +15,7 @@ echo $ENTRY_POINT
 
 echo "Set up JDepend"
 echo "Set JDEPEND_HOME directory: "
-cd ../libs/jdepend/jdepend-2.9.1
+cd ../libs/JDepend/jdepend-2.9.1
 JDEPEND_HOME=$(pwd)
 echo $JDEPEND_HOME
 
