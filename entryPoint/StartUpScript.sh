@@ -41,7 +41,7 @@ else
 fi
 
 echo "Updating JAVA_HOME to /usr/libexec/java_home"
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=/usr/libexec/java_home
 
 echo "Compiling with Maven"
 mvn compile
