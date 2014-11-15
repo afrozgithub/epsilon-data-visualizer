@@ -58,8 +58,8 @@
 		  var formatNumber = d3.format(",d");
 	      var defaultInfo;
 
-		  console.log("nodes == ");
-		  console.log(nodes);
+// 		  console.log("nodes == ");
+// 		  console.log(nodes);
 
 		  // Construct an index by node name.
 		  nodes.forEach(function(d) {
@@ -80,8 +80,8 @@
 		    });
 		  });
 
-		  console.log("links == ");
-		  console.log(links);
+// 		  console.log("links == ");
+// 		  console.log(links);
 
 		  // Determine the type of each node, based on incoming and outgoing links.
 		  nodes.forEach(function(node) {
@@ -111,8 +111,8 @@
 		      .sortKeys(d3.ascending)
 		      .entries(nodes);
 
-		  console.log("nodesByType ==");
-		  console.log(nodesByType);
+// 		  console.log("nodesByType ==");
+// 		  console.log(nodesByType);
 
 		  // Duplicate the target-source axis as source-target.
 		  var lastIndex = nodesByType.length - 1;
@@ -162,30 +162,29 @@
 		      .data(nodes)
 		    .enter().append("g")
 		      .attr("class", "node")
-		      .style("fill", function(d) { console.log(d.packageName);return color(d.packageName); });
+		      .style("fill", function(d) {console.log(d.packageName);return color(d.packageName); });
 
 
-		 console.log("nodesSel==");
-		 console.log(nodesSel);
+// 		 console.log("nodesSel==");
+// 		 console.log(nodesSel);
 
 
 		 var circlesSel = nodesSel.selectAll("circle")
-		      .data(function(d) { return d.connectors; })
+		      .data(function(d) { console.log("d.connectors from manual method::"); console.log(d.connectors); return d.connectors; })
 		    .enter().append("circle")
-		      .attr("class", "testclass")
 		      .attr("transform", function(d) { return "rotate(" + degrees(angle(d.type)) + ")"; })
 		      .attr("cx", function(d) { return radius(d.node.index); })
 		      .attr("r", 6)
 		      .on("mouseover", nodeMouseover)
 		      .on("mouseout", mouseout);
 
-		 console.log("circlesSel==");
-		 console.log(circlesSel);
+// 		 console.log("circlesSel==");
+// 		 console.log(circlesSel);
 
 		  // Highlight the link and connected nodes on mouseover.
 		  function linkMouseover(d) {
-			  console.log("d ==");
-			  console.log(d);
+// 			  console.log("d ==");
+// 			  console.log(d);
 		    svg.selectAll(".link").classed("active", function(p) { return p === d; });
 		    svg.selectAll(".node circle").classed("active", function(p) { return p === d.source || p === d.target; });
 		    info.text("[" + d.source.node.packageName + "]" + " DEPENDS ON " + "[" + d.target.node.packageName + "]");
@@ -193,14 +192,43 @@
 
 		  // Highlight the node and connected links on mouseover.
 		  function nodeMouseover(d) {
-		    svg.selectAll(".link").classed("active", function(p) { return p.source === d || p.target === d; });
-		    d3.select(this).classed("active", true);
+		    console.log("nodeMouseover::");
+		    console.log(d);
+			  
+			 svg.selectAll(".link").classed("active", function(p) { 
+				 
+// 				 console.log("p=====");
+// 				 console.log(p);
+// 				 console.log("d=====");
+// 				 console.log(d);
+				 
+				 if (p.source === d || p.target === d) {
+					 console.log("TRUE");
+				 } else {
+					 console.log("FALSE");
+ 
+				 }
+				 
+				 
+				 return p.source === d || p.target === d; });
+		    
+			
+// 			 console.log("555555555555");
+			 
+// 			 d3.select(this).classed("active", true);
+// 			 console.log(this);
+			 
+			 
+			 
+// 			 console.log("aaaaaaaaaaaaa");
 		    info.text(d.node.packageName);
 
+// 		    console.log("666666666666666");
+		    
 			var j = 0;
 
 			var temp = d.node.contents;
-			console.log(temp);
+// 			console.log(temp);
 			temp.forEach(function(source) {
 				console.log(temp[j].className);
 				console.log(temp[j].violation);
@@ -230,17 +258,21 @@
 	 	  violationColorLookup[DEAD_CODE] =  "Fuchsia";
 	 	  violationColorLookup[UNUSED_CATCH_BLOCK] = "Cyan" ; 
 
-		  setInterval(step, 2000);
+		 setInterval(step, 2000);
 
 		  function step() {
 
 			if (lightUpViolations == true){
+					// list of nodes with violation during this step
+					var violatedNodes = new Array();
+				
+				
 				  // if a node has a violation, then switch to a new color
 			 	 nodesSel.style("fill", function(d) {
 			 		var nodeContents = d.contents;
 					var nodeHasViolation = false;
 					var violationColor = color(d.packageName);
-
+					
 			 		nodeContents.forEach(function(nodeContent) {
 			 			if (nodeContent.violation != null) {
 
@@ -248,9 +280,8 @@
 			 					violationColor = violationColorLookup[DUPLICATE_CODE];
 			 					console.log("step == 0");
 			 					nodeHasViolation = true;
-
+			 					
 								violationText(violationColor, nodeContent.violation);
-
 			 				}
 			 				else if (stepCounter == 1 && nodeContent.violation == DEAD_CODE) {
 			 					violationColor = violationColorLookup[DEAD_CODE];
@@ -269,9 +300,64 @@
 
 			 				}
 			 			}
-			 		});
+			 		}); // end nodeContents forEach
+			 		
+
+			 		
+			 		
+			 		if (nodeHasViolation) {
+// 			 			violatedNodes.push(d);
+
+						console.log("connectors array:");
+						console.log(d.connectors);
+						nodeMouseover(d.connectors[0]);
+
+
+// 			 			d.connectors.forEach(function(c) {
+// 							nodeMouseover(c);
+							
+							
+			 				
+
+			 				
+			 				
+			 				
+// // 						 	svg.selectAll(".link").classed("active", function(p) {
+// // 						 		console.log("ssssssssssssssssss");
+
+// // 						 		 return p.source === c || p.target === c;
+// // 						 	});
+// 						});
+
+
+			 		}
+
+			 		
+// 	violatedNodes.forEach(function(d) {
+				 		
+// 				 		console.log("mmmmmmmmmmmmmm");
+				 		
+// 					 	d.connectors.forEach(function(c) {
+// 						 	svg.selectAll(".link").classed("active", function(p) {
+// 						 		console.log("ssssssssssssssssss");
+
+// 						 		 return p.source === c || p.target === c;
+// 						 	});
+// 						});
+// 				 	}); 
+			 		
+			 		
+			 		
+			 		
 			 		 return nodeHasViolation ? violationColor : color(d.packageName);
-			 	 });
+			 	 }); // end nodeSel.style
+			 	
+			
+			 	 
+			 	 
+			 	 
+			 	 
+			 	 
 
 			 	stepCounter++;
 		 		if (stepCounter > 2) {
@@ -299,7 +385,7 @@
 		// Ratio links can also be drawn by using a startRadius and endRadius.
 		// This class is modeled after d3.svg.chord.
 		function link() {
-			console.log("inside link()");
+// 			console.log("inside link()");
 
 		  var source = function(d) { return d.source; },
 		      target = function(d) { return d.target; },
