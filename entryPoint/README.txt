@@ -6,3 +6,5 @@ To run code on a new code base
 3.  Change the permissions of StartUpScript.sh with "chmod 577 StartUpScript.sh"
 4.  On your mac, run the shell script with "./StartUpScript.sh <codebasename>"
 5.  A website with the visualization will open.
+
+Warning:  homebrew and maven will be installed if they are not already.  The startup script may take some time.
