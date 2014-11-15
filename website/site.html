@@ -105,11 +105,6 @@
 		  var violations1 = d3.select("#violations1").text("");
 		  var violations2 = d3.select("#violations2").text("");
 
-		  // Normally, Hive Plots sort nodes by degree along each axis. However, since
-		  // this example visualizes a package hierarchy, we get more interesting
-		  // results if we group nodes by package. We don't need to sort explicitly
-		  // because the data file is already sorted by class name.
-
 		  // Nest nodes by type, for computing the rank.
 		  var nodesByType = d3.nest()
 		      .key(function(d) { return d.type; })
