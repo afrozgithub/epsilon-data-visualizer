@@ -15,7 +15,7 @@ echo $ENTRY_POINT
 
 echo "Set up JDepend"
 echo "Set JDEPEND_HOME directory: "
-cd ../libs/jdepend/jdepend-2.9.1
+cd ../libs/JDepend/jdepend-2.9.1
 JDEPEND_HOME=$(pwd)
 echo $JDEPEND_HOME
 
@@ -24,23 +24,24 @@ cd $ENTRY_POINT/../codebases/$CODE_BASE_NAME
 CODE_BASE=$(pwd)
 echo $CODE_BASE
 
-if [ "which brew" == "" ]; then
-	echo "Install brew"
+if ! which brew > /dev/null; then
+	echo "Installing brew"
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	brew doctor
-
 else 
 	echo "brew already installed"
 fi
 
-if [ "which mvn" == "" ]; then
-	echo "Install mvn"
-	brew update
+if ! which mvn > /dev/null; then
+	echo "Installing mvn"
+	brew update 
 	brew install maven
-
 else 
 	echo "maven already installed"
 fi
+
+echo "Updating JAVA_HOME to /usr/libexec/java_home"
+export JAVA_HOME=/usr/libexec/java_home
 
 echo "Compiling with Maven"
 mvn compile
@@ -54,13 +55,12 @@ export CLASSPATH=$CLASSPATH:$JDEPEND_HOME/lib/jdepend-2.9.1.jar
 
 echo "Run ant build script"
 
-if [ "ant -version" == "" ]; then
-	echo "Install ant"
-	brew update
-	brew install ant
-
+if ! which ant > /dev/null; then
+	echo "Installing ant"
+ 	brew update
+ 	brew install ant
 else 
-	echo "ant installed"
+	echo "ant already installed"
 fi
 
 echo "Go to JDEPEND_HOME"

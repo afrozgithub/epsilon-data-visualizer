@@ -1,0 +1,37 @@
+[
+{
+"packageName": "com.xyz.a.neverchanges", 
+"dependecies": "[]", 
+"contents": []
+}, 
+{
+"packageName": "epayment.adapters", 
+"dependecies": "['epayment.framework', 'epayment.response']", 
+"contents": []
+}, 
+{
+"packageName": "epayment.commands", 
+"dependecies": "['epayment.framework']", 
+"contents": []
+}, 
+{
+"packageName": "epayment.framework", 
+"dependecies": "[]", 
+"contents": []
+}, 
+{
+"packageName": "epayment.processor", 
+"dependecies": "['epayment.framework']", 
+"contents": []
+}, 
+{
+"packageName": "epayment.request", 
+"dependecies": "['epayment.framework']", 
+"contents": []
+}, 
+{
+"packageName": "epayment.response", 
+"dependecies": "['epayment.framework']", 
+"contents": []
+}
+]
