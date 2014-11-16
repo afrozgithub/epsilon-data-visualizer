@@ -34,8 +34,8 @@ for packages in root.findall('Packages'):
 		for dependsUpon in package.findall('DependsUpon'):
 			for dependency in dependsUpon.findall('Package'):
 				dependencyToAppend = dependency.text
-				dependencyList.append(dependencyToAppend)
-		package_dependencies = { "packageName" : packageName, "dependencies" : str(dependencyList), "contents" : [] }
+				dependencyList.append(str(dependencyToAppend))
+		package_dependencies = { "packageName" : packageName, "dependencies" : dependencyList, "contents" : [] }
 		package_dependency_list.append(package_dependencies)
 		# print(repr(package_dependencies))
 		# json_data = {"package_dependencies" : package_dependencies}
