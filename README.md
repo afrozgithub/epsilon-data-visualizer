@@ -1,6 +1,6 @@
 epsilon-data-visualizer
 =======================
-StartUpScript.sh Instructions:
+####StartUpScript.sh Instructions:
 
 To run code on a new code base
 1.  Download Java code base off github.  (note: the code base needs to have a pom file).
