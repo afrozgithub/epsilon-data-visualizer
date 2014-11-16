@@ -32,9 +32,16 @@
 	    var MAJOR_ANGLE = 2 * Math.PI / 3;
 	    var MINOR_ANGLE = 1 * Math.PI / 12;
 
-		var DUPLICATE_CODE = "Duplicate code";
-		var DEAD_CODE = "Dead code";
-		var UNUSED_CATCH_BLOCK = "Unused catch block";
+// 		var DUPLICATE_CODE = "Duplicate code";
+// 		var DEAD_CODE = "Dead code";
+// 		var UNUSED_CATCH_BLOCK = "Unused catch block";
+
+		// Violation Types
+		var COUPLING_BETWEEN_OBJECTS = "CouplingBetweenObjects";
+		var EXCESSIVE_IMPORTS = "ExcessiveImports";
+		var LOOSE_COUPLING = "LooseCoupling";
+		var LOOSE_PACKAGE_COUPLING = "LoosePackageCoupling";
+		var LAW_OF_DEMETER = "LawOfDemeter";
 
 		var angle = d3.scale.ordinal()
 		    .domain(["source", "source-target", "target-source", "target"])
@@ -49,7 +56,7 @@
 		    .attr("width", WIDTH)
 		    .attr("height", HEIGHT)
 		  .append("g")
-		    .attr("transform", "translate(" + OUTER_RADIUS * .20 + "," + OUTER_RADIUS * .57 + ")");
+		    .attr("transform", "translate(" + OUTER_RADIUS * 1.0 + "," + OUTER_RADIUS * .25 + ")");
 
 		// Load the data and display the plot!
 		d3.json("data.json", function(nodes) {
@@ -58,8 +65,8 @@
 		  var formatNumber = d3.format(",d");
 	      var defaultInfo;
 
-		  console.log("nodes == ");
-		  console.log(nodes);
+// 		  console.log("nodes == ");
+// 		  console.log(nodes);
 
 		  // Construct an index by node name.
 		  nodes.forEach(function(d) {
@@ -67,8 +74,8 @@
 		    nodesByName[d.packageName] = d;
 		  });
 
-		  console.log("nodesByName");
-		  console.log(nodesByName);
+// 		  console.log("nodesByName");
+// 		  console.log(nodesByName);
 
 		  // Convert the import lists into links with sources and targets.
 		  nodes.forEach(function(source) {
@@ -80,8 +87,8 @@
 		    });
 		  });
 
-		  console.log("links == ");
-		  console.log(links);
+// 		  console.log("links == ");
+// 		  console.log(links);
 
 		  // Determine the type of each node, based on incoming and outgoing links.
 		  nodes.forEach(function(node) {
@@ -111,8 +118,8 @@
 		      .sortKeys(d3.ascending)
 		      .entries(nodes);
 
-		  console.log("nodesByType ==");
-		  console.log(nodesByType);
+// 		  console.log("nodesByType ==");
+// 		  console.log(nodesByType);
 
 		  // Duplicate the target-source axis as source-target.
 		  var lastIndex = nodesByType.length - 1;
@@ -162,11 +169,11 @@
 		      .data(nodes)
 		    .enter().append("g")
 		      .attr("class", "node")
-		      .style("fill", function(d) { console.log(d.packageName);return color(d.packageName); });
+		      .style("fill", function(d) {return color(d.packageName); });
 
 
-		 console.log("nodesSel==");
-		 console.log(nodesSel);
+// 		 console.log("nodesSel==");
+// 		 console.log(nodesSel);
 
 
 		 var circlesSel = nodesSel.selectAll("circle")
@@ -179,13 +186,13 @@
 		      .on("mouseover", nodeMouseover)
 		      .on("mouseout", mouseout);
 
-		 console.log("circlesSel==");
-		 console.log(circlesSel);
+// 		 console.log("circlesSel==");
+// 		 console.log(circlesSel);
 
 		  // Highlight the link and connected nodes on mouseover.
 		  function linkMouseover(d) {
-			  console.log("d ==");
-			  console.log(d);
+// 			  console.log("d ==");
+// 			  console.log(d);
 		    svg.selectAll(".link").classed("active", function(p) { return p === d; });
 		    svg.selectAll(".node circle").classed("active", function(p) { return p === d.source || p === d.target; });
 		    info.text("[" + d.source.node.packageName + "]" + " DEPENDS ON " + "[" + d.target.node.packageName + "]");
@@ -200,10 +207,10 @@
 			var j = 0;
 
 			var temp = d.node.contents;
-			console.log(temp);
+// 			console.log(temp);
 			temp.forEach(function(source) {
-				console.log(temp[j].className);
-				console.log(temp[j].violation);
+// 				console.log(temp[j].className);
+// 				console.log(temp[j].violation);
 				if (temp[j].violation != null){
 					violations1.text(temp[j].className);
 					violations2.text(temp[j].violation);
@@ -226,10 +233,12 @@
 
 		  // Declare key-value pairs for violation-color
 	 	  var violationColorLookup = new Array();
-	 	  violationColorLookup[DUPLICATE_CODE] = "Yellow";
-	 	  violationColorLookup[DEAD_CODE] =  "Fuchsia";
-	 	  violationColorLookup[UNUSED_CATCH_BLOCK] = "Cyan" ; 
-
+	 	  violationColorLookup[COUPLING_BETWEEN_OBJECTS] = "Yellow";
+	 	  violationColorLookup[EXCESSIVE_IMPORTS] =  "Fuchsia";
+	 	  violationColorLookup[LOOSE_COUPLING] = "Cyan" ; 
+	 	  violationColorLookup[LOOSE_PACKAGE_COUPLING] = "White" ; 
+	 	  violationColorLookup[LAW_OF_DEMETER] = "Green" ; 
+		  	
 		  setInterval(step, 2000);
 
 		  function step() {
@@ -244,29 +253,35 @@
 			 		nodeContents.forEach(function(nodeContent) {
 			 			if (nodeContent.violation != null) {
 
-			 				if (stepCounter == 0 && nodeContent.violation == DUPLICATE_CODE) {
-			 					violationColor = violationColorLookup[DUPLICATE_CODE];
-			 					console.log("step == 0");
+			 				if (stepCounter == 0 && nodeContent.violation == COUPLING_BETWEEN_OBJECTS) {
+			 					violationColor = violationColorLookup[COUPLING_BETWEEN_OBJECTS];
+// 			 					console.log("step == 0");
 			 					nodeHasViolation = true;
-
 								violationText(violationColor, nodeContent.violation);
-
 			 				}
-			 				else if (stepCounter == 1 && nodeContent.violation == DEAD_CODE) {
-			 					violationColor = violationColorLookup[DEAD_CODE];
-			 					console.log("step == 1");
+			 				else if (stepCounter == 1 && nodeContent.violation == EXCESSIVE_IMPORTS) {
+			 					violationColor = violationColorLookup[EXCESSIVE_IMPORTS];
+// 			 					console.log("step == 1");
 			 					nodeHasViolation = true;
-
 								violationText(violationColor, nodeContent.violation);
-
 			 				}
-			 				else if (stepCounter == 2 && nodeContent.violation == UNUSED_CATCH_BLOCK) {
-			 					violationColor = violationColorLookup[UNUSED_CATCH_BLOCK];
-			 					console.log("step == 2");
+			 				else if (stepCounter == 2 && nodeContent.violation == LOOSE_COUPLING) {
+			 					violationColor = violationColorLookup[LOOSE_COUPLING];
+// 			 					console.log("step == 2");
 			 					nodeHasViolation = true;
-
 								violationText(violationColor, nodeContent.violation);
-
+			 				}
+			 				else if (stepCounter == 3 && nodeContent.violation == LOOSE_PACKAGE_COUPLING) {
+			 					violationColor = violationColorLookup[LOOSE_PACKAGE_COUPLING];
+// 			 					console.log("step == 3");
+			 					nodeHasViolation = true;
+								violationText(violationColor, nodeContent.violation);
+			 				}
+			 				else if (stepCounter == 4 && nodeContent.violation == LAW_OF_DEMETER) {
+			 					violationColor = violationColorLookup[LAW_OF_DEMETER];
+// 			 					console.log("step == 4");
+			 					nodeHasViolation = true;
+								violationText(violationColor, nodeContent.violation);
 			 				}
 			 			}
 			 		});
@@ -274,8 +289,8 @@
 			 	 });
 
 			 	stepCounter++;
-		 		if (stepCounter > 2) {
-		 			// reset counter to 0 since we only have max 3 violations
+		 		if (stepCounter > 4) {
+		 			// reset counter to 0 since we only have max 5 violations
 		 			stepCounter = 0;
 		 		}
 		 		lightUpViolations = false;
@@ -299,7 +314,7 @@
 		// Ratio links can also be drawn by using a startRadius and endRadius.
 		// This class is modeled after d3.svg.chord.
 		function link() {
-			console.log("inside link()");
+// 			console.log("inside link()");
 
 		  var source = function(d) { return d.source; },
 		      target = function(d) { return d.target; },
