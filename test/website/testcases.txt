@@ -12,7 +12,7 @@ Test Cases for the website visualization:
   Actual Result:
 	1. Twice as many nodes are being shown, 2 nodes for each package. [FAIL]
 
-  Bug report: Issue #15 
+  Bug report: Resolved in Issue #15 
 
 
 2) Verify that the node links reflect the dependencies as defined in the JSON
@@ -61,4 +61,53 @@ Test Cases for the website visualization:
 
   Actual Result:
 	1. Same as expected [PASS]
+	
+
+6) Violation sidebar info still visible after node mouse over
+  
+  Steps:
+	1. Mouse over a node with violations
+	2. Mouse out 
+	3. Mouse over a node with no violations
+   
+  Expected Result:
+	1. Violation info appears on right sidebar
+	2. Violation info removed from right sidebar
+	3. No violation data is shown
+
+  Actual Result:
+	1. Violation info appears on right sidebar 
+	2. Violation info remains on right sidebar [FAIL]
+	3. Violation info remains on right sidebar [FAIL]
  
+  Bug Report: Resolved in Issue #20
+  
+  
+ 7) Violation correctly displayed for a node in hive plot
+ 
+  Steps:
+  	1. Mouse over a node 
+  	2. Compare violation name to JSON data for that package
+  	
+  Expected Result:
+	1. Violation name in JSON data == Violation name in hive plot
+	
+  Actual Result:
+	1. Same as expected [PASS]
+	
+
+ 8) Violations light up periodically
+ 
+  Steps:
+  	1. Open visualization
+  	2. Wait 1000 ms
+  	3. Wait 1000 ms
+  	4. Wait 1000 ms
+   
+  Expected Result:
+  	2. Node colour changes to violation colour
+  	3. Node colour changes back to normal colour
+  	4. Node colour changes to violation colour
+
+  Actual Result:
+  	Same as expected [PASS]
