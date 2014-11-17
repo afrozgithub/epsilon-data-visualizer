@@ -1,0 +1,22 @@
+var violationTypes = [
+		{
+		  "violation":"CouplingBetweenObjects",
+		  "color":"Yellow"
+		}, 
+		{
+		  "violation":"ExcessiveImports",
+		  "color":"Fuchsia"
+		}, 		
+		{
+	      "violation":"LooseCoupling",
+		  "color":"Cyan"
+		},		
+		{
+		  "violation":"LoosePackageCoupling",
+		  "color":"White"
+		},			
+		{
+		  "violation":"LawOfDemeter",
+		  "color":"Green"
+		}	
+];

@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="../libs/d3/d3.min.js" charset="utf-8"></script>
+<script src="violations.js" charset="utf-8"></script>
 </head>
 
 <body>
@@ -31,18 +32,7 @@
 	    var OUTER_RADIUS = 640;
 	    var MAJOR_ANGLE = 2 * Math.PI / 3;
 	    var MINOR_ANGLE = 1 * Math.PI / 12;
-
-// 		var DUPLICATE_CODE = "Duplicate code";
-// 		var DEAD_CODE = "Dead code";
-// 		var UNUSED_CATCH_BLOCK = "Unused catch block";
-
-		// Violation Types
-		var COUPLING_BETWEEN_OBJECTS = "CouplingBetweenObjects";
-		var EXCESSIVE_IMPORTS = "ExcessiveImports";
-		var LOOSE_COUPLING = "LooseCoupling";
-		var LOOSE_PACKAGE_COUPLING = "LoosePackageCoupling";
-		var LAW_OF_DEMETER = "LawOfDemeter";
-
+			
 		var angle = d3.scale.ordinal()
 		    .domain(["source", "source-target", "target-source", "target"])
 		    .range([0, MAJOR_ANGLE - MINOR_ANGLE, MAJOR_ANGLE + MINOR_ANGLE, 2 * MAJOR_ANGLE]);
@@ -171,10 +161,8 @@
 		      .attr("class", "node")
 		      .style("fill", function(d) {return "white"; });
 
-
 // 		 console.log("nodesSel==");
 // 		 console.log(nodesSel);
-
 
 		 var circlesSel = nodesSel.selectAll("circle")
 		      .data(function(d) { return d.connectors; })
@@ -230,17 +218,10 @@
 		  // Light up a node repeatedly if it contains a violation
 		  var lightUpViolations = true;
 		  var stepCounter = 0;
-
-		  // Declare key-value pairs for violation-color
-	 	  var violationColorLookup = new Array();
-	 	  violationColorLookup[COUPLING_BETWEEN_OBJECTS] = "Yellow";
-	 	  violationColorLookup[EXCESSIVE_IMPORTS] =  "Fuchsia";
-	 	  violationColorLookup[LOOSE_COUPLING] = "Cyan" ; 
-	 	  violationColorLookup[LOOSE_PACKAGE_COUPLING] = "White" ; 
-	 	  violationColorLookup[LAW_OF_DEMETER] = "Green" ; 
+		  var stepCounterMax = violationTypes.length - 1;
 		  	
 		  setInterval(step, 1000);
-
+		  
 		  function step() {
 
 			if (lightUpViolations == true){
@@ -248,58 +229,32 @@
 			 	 nodesSel.style("fill", function(d) {
 			 		var nodeContents = d.contents;
 					var nodeHasViolation = false;
-					var violationColor = "white";
+					var violationColor = "White";
 
 			 		nodeContents.forEach(function(nodeContent) {
 			 			if (nodeContent.violation != null) {
-
-			 				if (stepCounter == 0 && nodeContent.violation == COUPLING_BETWEEN_OBJECTS) {
-			 					violationColor = violationColorLookup[COUPLING_BETWEEN_OBJECTS];
-// 			 					console.log("step == 0");
-			 					nodeHasViolation = true;
+			 				if (nodeContent.violation == violationTypes[stepCounter].violation) {
+			 					violationColor = violationTypes[stepCounter].color;
 								violationText(violationColor, nodeContent.violation);
-			 				}
-			 				else if (stepCounter == 1 && nodeContent.violation == EXCESSIVE_IMPORTS) {
-			 					violationColor = violationColorLookup[EXCESSIVE_IMPORTS];
-// 			 					console.log("step == 1");
 			 					nodeHasViolation = true;
-								violationText(violationColor, nodeContent.violation);
-			 				}
-			 				else if (stepCounter == 2 && nodeContent.violation == LOOSE_COUPLING) {
-			 					violationColor = violationColorLookup[LOOSE_COUPLING];
-// 			 					console.log("step == 2");
-			 					nodeHasViolation = true;
-								violationText(violationColor, nodeContent.violation);
-			 				}
-			 				else if (stepCounter == 3 && nodeContent.violation == LOOSE_PACKAGE_COUPLING) {
-			 					violationColor = violationColorLookup[LOOSE_PACKAGE_COUPLING];
-// 			 					console.log("step == 3");
-			 					nodeHasViolation = true;
-								violationText(violationColor, nodeContent.violation);
-			 				}
-			 				else if (stepCounter == 4 && nodeContent.violation == LAW_OF_DEMETER) {
-			 					violationColor = violationColorLookup[LAW_OF_DEMETER];
-// 			 					console.log("step == 4");
-			 					nodeHasViolation = true;
-								violationText(violationColor, nodeContent.violation);
+			 					console.log(stepCounter);
 			 				}
 			 			}
 			 		});
-			 		 return nodeHasViolation ? violationColor : "white";
+			 		 return violationColor;
 			 	 });
 
 			 	stepCounter++;
-		 		if (stepCounter > 4) {
-		 			// reset counter to 0 since we only have max 5 violations
+		 		if (stepCounter > stepCounterMax) {
 		 			stepCounter = 0;
 		 		}
 		 		lightUpViolations = false;
 			  }
 			  else {
 				 // all nodes return to original color
-				 nodesSel.style("fill", function(d) { return "white"; });
+				 nodesSel.style("fill", function(d) { return "White"; });
 				 lightUpViolations = true;
-					d3.select("#violationsFlash").text("");
+				 d3.select("#violationsFlash").text("");
 			  }
 		  }
 		});
