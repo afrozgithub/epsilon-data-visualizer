@@ -12,10 +12,10 @@
 </head>
 
 <body>
-	<h1>Hive Plot in Development</h1>
-	<h3>North axis = shows only the source nodes (i.e. other nodes do not point to these nodes)</h3>
-	<h3>South West axis = shows only target nodes (i.e. other nodes point to these nodes)</h3>
-	<h3>East & South East axis = shows that these nodes are considered both source and target (i.e. SE-axis nodes points to E-axis nodes)</h3>
+	<h1>Package Dependencies and Source Code Violations</h1>
+<!-- 	<h3>North axis = shows only the source nodes (i.e. other nodes do not point to these nodes)</h3> -->
+<!-- 	<h3>South West axis = shows only target nodes (i.e. other nodes point to these nodes)</h3> -->
+<!-- 	<h3>East & South East axis = shows that these nodes are considered both source and target (i.e. SE-axis nodes points to E-axis nodes)</h3> -->
 
 	<div class="buffer">
 		<p id="info">Loading...</p>
@@ -228,7 +228,6 @@
 				  // if a node has a violation, then switch to a new color
 			 	 nodesSel.style("fill", function(d) {
 			 		var nodeContents = d.contents;
-					var nodeHasViolation = false;
 					var violationColor = "White";
 
 			 		nodeContents.forEach(function(nodeContent) {
@@ -236,7 +235,6 @@
 			 				if (nodeContent.violation == violationTypes[stepCounter].violation) {
 			 					violationColor = violationTypes[stepCounter].color;
 								violationText(violationColor, nodeContent.violation);
-			 					nodeHasViolation = true;
 			 					console.log(stepCounter);
 			 				}
 			 			}
