@@ -12,19 +12,17 @@
 </head>
 
 <body>
-	<h1>Package Dependencies and Source Code Violations</h1>
+	<div id="header">
+		<h1>Package Dependencies and Source Code Violations</h1>
+		<p id="info">Loading...</p>
+	</div>
 <!-- 	<h3>North axis = shows only the source nodes (i.e. other nodes do not point to these nodes)</h3> -->
 <!-- 	<h3>South West axis = shows only target nodes (i.e. other nodes point to these nodes)</h3> -->
 <!-- 	<h3>East & South East axis = shows that these nodes are considered both source and target (i.e. SE-axis nodes points to E-axis nodes)</h3> -->
-
-	<div class="buffer">
-		<p id="info">Loading...</p>
-		<p id="violationsFlash"></p>
-		<p id="violations1"></p>
-		<p id="violations2"></p>
-	</div>
+	
 	<p id="chart"></p>
-
+	<table id="legend"></table>
+	
 	<script>
 		var WIDTH = 960;
 	    var HEIGHT = 850;
@@ -48,6 +46,18 @@
 		  .append("g")
 		    .attr("transform", "translate(" + OUTER_RADIUS * 1.0 + "," + OUTER_RADIUS * .25 + ")");
 
+		// Legend of Violations
+		var legend = d3.select("#legend");
+
+		violationTypes.forEach(function(violation) {
+			var tr = legend.append("tr");
+			var td1 = tr.append("td");
+			var td2 = tr.append("td");
+			var svg = td1.append("svg").attr("width", 20).attr("height", 20);
+			svg.append("circle").attr("cx", 10).attr("cy", 10).attr("r", 6).style("fill", violation.color);
+			td2.append("p").text(violation.violation);
+		});
+		
 		// Load the data and display the plot!
 		d3.json("data.json", function(nodes) {
 		  var nodesByName = {};
@@ -99,8 +109,6 @@
 		  defaultInfo = "Showing " + formatNumber(links.length) + " dependencies among " + formatNumber(nodes.length) + " packages.";
 
 		  var info = d3.select("#info").text(defaultInfo);
-		  var violations1 = d3.select("#violations1").text("");
-		  var violations2 = d3.select("#violations2").text("");
 
 		  // Nest nodes by type, for computing the rank.
 		  var nodesByType = d3.nest()
@@ -167,7 +175,6 @@
 		 var circlesSel = nodesSel.selectAll("circle")
 		      .data(function(d) { return d.connectors; })
 		    .enter().append("circle")
-		      .attr("class", "testclass")
 		      .attr("transform", function(d) { return "rotate(" + degrees(angle(d.type)) + ")"; })
 		      .attr("cx", function(d) { return radius(d.node.index); })
 		      .attr("r", 6)
@@ -191,28 +198,12 @@
 		    svg.selectAll(".link").classed("active", function(p) { return p.source === d || p.target === d; });
 		    d3.select(this).classed("active", true);
 		    info.text(d.node.packageName);
-
-			var j = 0;
-
-			var temp = d.node.contents;
-// 			console.log(temp);
-			temp.forEach(function(source) {
-// 				console.log(temp[j].className);
-// 				console.log(temp[j].violation);
-				if (temp[j].violation != null){
-					violations1.text(temp[j].className);
-					violations2.text(temp[j].violation);
-				}
-				j++
-			});
 		  }
 
 		  // Clear any highlighted nodes or links.
 		  function mouseout() {
 		    svg.selectAll(".active").classed("active", false);
 		    info.text(defaultInfo);
-		    violations1.text("");
-		    violations2.text("");
 		  }
 
 		  // Light up a node repeatedly if it contains a violation
@@ -234,7 +225,6 @@
 			 			if (nodeContent.violation != null) {
 			 				if (nodeContent.violation == violationTypes[stepCounter].violation) {
 			 					violationColor = violationTypes[stepCounter].color;
-								violationText(violationColor, nodeContent.violation);
 			 					console.log(stepCounter);
 			 				}
 			 			}
@@ -252,15 +242,9 @@
 				 // all nodes return to original color
 				 nodesSel.style("fill", function(d) { return "White"; });
 				 lightUpViolations = true;
-				 d3.select("#violationsFlash").text("");
 			  }
 		  }
 		});
-
-		//Light Up helper function
-		function violationText(colour, violation){
-		  	d3.select("#violationsFlash").text(violation + " displayed in " + colour);
-	    }
 
 		// A shape generator for Hive links, based on a source and a target.
 		// The source and target are defined in polar coordinates (angle and radius).
@@ -352,6 +336,5 @@
 		}
 
 	</script>
-
 </body>
 </html>

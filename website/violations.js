@@ -13,7 +13,7 @@ var violationTypes = [
 		},		
 		{
 		  "violation":"LoosePackageCoupling",
-		  "color":"White"
+		  "color":"Brown"
 		},			
 		{
 		  "violation":"LawOfDemeter",
