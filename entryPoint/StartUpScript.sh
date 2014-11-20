@@ -81,7 +81,7 @@ echo "Run PMD on codebase to produce XML"
 cd "$ENTRY_POINT/../libs/pmd/bin"
 
 # # call run command
-./run.sh pmd -d $ENTRY_POINT/../codebases/$CODE_BASE_NAME -f xml -r $ENTRY_POINT/../parser/"$CODE_BASE_NAME"_PMDOutput.xml -R rulesets/java/coupling.xml
+./run.sh pmd -d $ENTRY_POINT/../codebases/$CODE_BASE_NAME -f xml -r $ENTRY_POINT/../parser/"$CODE_BASE_NAME"_PMDOutput.xml -R rulesets/java/controversial.xml
 
 echo "Call JDependParser with XML to produce JSON"
 
