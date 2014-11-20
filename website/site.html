@@ -16,10 +16,6 @@
 		<h1>Package Dependencies and Source Code Violations</h1>
 		<p id="info">Loading...</p>
 	</div>
-<!-- 	<h3>North axis = shows only the source nodes (i.e. other nodes do not point to these nodes)</h3> -->
-<!-- 	<h3>South West axis = shows only target nodes (i.e. other nodes point to these nodes)</h3> -->
-<!-- 	<h3>East & South East axis = shows that these nodes are considered both source and target (i.e. SE-axis nodes points to E-axis nodes)</h3> -->
-	
 	<p id="chart"></p>
 	<table id="legend"></table>
 	
@@ -65,17 +61,11 @@
 		  var formatNumber = d3.format(",d");
 	      var defaultInfo;
 
-// 		  console.log("nodes == ");
-// 		  console.log(nodes);
-
 		  // Construct an index by node name.
 		  nodes.forEach(function(d) {
 		    d.connectors = [];
 		    nodesByName[d.packageName] = d;
 		  });
-
-// 		  console.log("nodesByName");
-// 		  console.log(nodesByName);
 
 		  // Convert the import lists into links with sources and targets.
 		  nodes.forEach(function(source) {
@@ -86,9 +76,6 @@
 		      links.push({source: source.source, target: target.target});
 		    });
 		  });
-
-// 		  console.log("links == ");
-// 		  console.log(links);
 
 		  // Determine the type of each node, based on incoming and outgoing links.
 		  nodes.forEach(function(node) {
@@ -115,9 +102,6 @@
 		      .key(function(d) { return d.type; })
 		      .sortKeys(d3.ascending)
 		      .entries(nodes);
-
-// 		  console.log("nodesByType ==");
-// 		  console.log(nodesByType);
 
 		  // Duplicate the target-source axis as source-target.
 		  var lastIndex = nodesByType.length - 1;
@@ -169,9 +153,6 @@
 		      .attr("class", "node")
 		      .style("fill", function(d) {return "white"; });
 
-// 		 console.log("nodesSel==");
-// 		 console.log(nodesSel);
-
 		 var circlesSel = nodesSel.selectAll("circle")
 		      .data(function(d) { return d.connectors; })
 		    .enter().append("circle")
@@ -181,13 +162,8 @@
 		      .on("mouseover", nodeMouseover)
 		      .on("mouseout", mouseout);
 
-// 		 console.log("circlesSel==");
-// 		 console.log(circlesSel);
-
 		  // Highlight the link and connected nodes on mouseover.
 		  function linkMouseover(d) {
-// 			  console.log("d ==");
-// 			  console.log(d);
 		    svg.selectAll(".link").classed("active", function(p) { return p === d; });
 		    svg.selectAll(".node circle").classed("active", function(p) { return p === d.source || p === d.target; });
 		    info.text("[" + d.source.node.packageName + "]" + " DEPENDS ON " + "[" + d.target.node.packageName + "]");
@@ -214,40 +190,30 @@
 		  setInterval(step, 2000);
 		  
 		  function step() {
-
-		 nodesSel.style("fill", function(d) { return "White"; });
-				 lightUpViolations = true;
+			 nodesSel.style("fill", function(d) { return "White"; });
+			 lightUpViolations = true;
 			  
-			  
-// 			if (lightUpViolations == true){
-				  // if a node has a violation, then switch to a new color
-			 	 nodesSel.style("fill", function(d) {
-			 		var nodeContents = d.contents;
-					var violationColor = "White";
+			  // Switch to a new color
+		 	 nodesSel.style("fill", function(d) {
+		 		var nodeContents = d.contents;
+				var violationColor = "White";
 
-			 		nodeContents.forEach(function(nodeContent) {
-			 			if (nodeContent.violation != null) {
-			 				if (nodeContent.violation == violationTypes[stepCounter].violation) {
-			 					violationColor = violationTypes[stepCounter].color;
-			 					console.log(stepCounter);
-			 				}
-			 			}
-			 		});
-			 		 return violationColor;
-			 	 });
-
-			 	stepCounter++;
-		 		if (stepCounter > stepCounterMax) {
-		 			stepCounter = 0;
-		 		}
-		 		lightUpViolations = false;
-			  }
-// 			  else {
-// 				 // all nodes return to original color
-// 				 nodesSel.style("fill", function(d) { return "White"; });
-// 				 lightUpViolations = true;
-// 			  }
-// 		  }
+		 		nodeContents.forEach(function(nodeContent) {
+		 			if (nodeContent.violation != null) {
+		 				if (nodeContent.violation == violationTypes[stepCounter].violation) {
+		 					violationColor = violationTypes[stepCounter].color;
+		 					console.log(stepCounter);
+		 				}
+		 			}
+		 		});
+		 		return violationColor;
+		 	 });
+		 	stepCounter++;
+	 		if (stepCounter > stepCounterMax) {
+	 			stepCounter = 0;
+	 		}
+	 		lightUpViolations = false;
+		  }
 		});
 
 		// A shape generator for Hive links, based on a source and a target.
@@ -255,8 +221,6 @@
 		// Ratio links can also be drawn by using a startRadius and endRadius.
 		// This class is modeled after d3.svg.chord.
 		function link() {
-// 			console.log("inside link()");
-
 		  var source = function(d) { return d.source; },
 		      target = function(d) { return d.target; },
 		      angle = function(d) { return d.angle; },
@@ -338,7 +302,7 @@
 		function degrees(radians) {
 		  return radians / Math.PI * 180 - 90;
 		}
-
+		
 	</script>
 </body>
 </html>
