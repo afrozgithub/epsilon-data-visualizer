@@ -1,0 +1,649 @@
+[
+{
+"packageName": "com.google.common.base",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.common.collect",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.gson",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "io.appium.java_client",
+"dependencies": [
+"com.google.common.collect",
+"com.google.gson",
+"java.io",
+"java.lang",
+"java.net",
+"java.util",
+"javax.xml.bind",
+"org.openqa.selenium",
+"org.openqa.selenium.html5",
+"org.openqa.selenium.remote",
+"org.openqa.selenium.remote.html5",
+"org.openqa.selenium.remote.http"
+],
+"contents": [
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriver"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriver"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriver"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriver"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriver"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriver"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumDriver"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumDriver"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "OnlyOneReturn",
+"className": "ErrorCodesMobile"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "ErrorCodesMobile"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "ErrorCodesMobile"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "ErrorCodesMobile"
+},
+{
+"violation": "CallSuperInConstructor",
+"className": "MobileBy$ByIosUIAutomation"
+},
+{
+"violation": "CallSuperInConstructor",
+"className": "MobileBy$ByAndroidUIAutomator"
+},
+{
+"violation": "CallSuperInConstructor",
+"className": "MobileBy$ByAccessibilityId"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "DefaultPackage",
+"className": "MultiTouchAction"
+},
+{
+"violation": "AvoidLiteralsInIfCondition",
+"className": "MultiTouchAction"
+},
+{
+"violation": "AvoidLiteralsInIfCondition",
+"className": "MultiTouchAction"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "MultiTouchAction"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "NetworkConnectionSetting"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "NetworkConnectionSetting"
+},
+{
+"violation": "DefaultPackage",
+"className": "TouchAction"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "TouchAction"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumDriverTest"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+}
+]
+},
+{
+"packageName": "io.appium.java_client.android",
+"dependencies": [
+"com.google.common.base",
+"com.google.common.collect",
+"io.appium.java_client",
+"io.appium.java_client.android.internal",
+"java.lang",
+"java.net",
+"java.util",
+"org.openqa.selenium",
+"org.openqa.selenium.remote"
+],
+"contents": [
+{
+"violation": "DefaultPackage",
+"className": "AndroidDriver"
+},
+{
+"violation": "UseObjectForClearerAPI",
+"className": "AndroidDriver"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "UseObjectForClearerAPI",
+"className": "StartsActivity"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AndroidDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AndroidDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AndroidDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AndroidDriverTest"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+}
+]
+},
+{
+"packageName": "io.appium.java_client.android.internal",
+"dependencies": [
+"io.appium.java_client",
+"io.appium.java_client.android",
+"io.appium.java_client.internal"
+],
+"contents": []
+},
+{
+"packageName": "io.appium.java_client.internal",
+"dependencies": [
+"com.google.common.collect",
+"io.appium.java_client",
+"java.lang",
+"java.util",
+"org.openqa.selenium.internal",
+"org.openqa.selenium.remote.internal"
+],
+"contents": [
+{
+"violation": "OnlyOneReturn",
+"className": "JsonToMobileElementConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "JsonToMobileElementConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "JsonToMobileElementConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "JsonToMobileElementConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "JsonToMobileElementConverter"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "MobileElementToJsonConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "MobileElementToJsonConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "MobileElementToJsonConverter"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "MobileElementToJsonConverter"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "MobileElementToJsonConverter"
+}
+]
+},
+{
+"packageName": "io.appium.java_client.ios",
+"dependencies": [
+"com.google.common.collect",
+"io.appium.java_client",
+"io.appium.java_client.ios.internal",
+"java.lang",
+"java.net",
+"java.util",
+"org.openqa.selenium"
+],
+"contents": [
+{
+"violation": "AvoidLiteralsInIfCondition",
+"className": "IOSDriver"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "IOSDriver"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "IOSDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "IOSDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "IOSDriverTest"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "IOSDriverTest"
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+},
+{
+"violation": "AtLeastOneConstructor",
+"className": null
+}
+]
+},
+{
+"packageName": "io.appium.java_client.ios.internal",
+"dependencies": [
+"io.appium.java_client",
+"io.appium.java_client.internal",
+"io.appium.java_client.ios"
+],
+"contents": []
+},
+{
+"packageName": "io.appium.java_client.pagefactory",
+"dependencies": [
+"com.google.common.base",
+"io.appium.java_client",
+"io.appium.java_client.android",
+"io.appium.java_client.ios",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.util",
+"java.util.concurrent",
+"net.sf.cglib.proxy",
+"org.openqa.selenium",
+"org.openqa.selenium.internal",
+"org.openqa.selenium.remote",
+"org.openqa.selenium.support.pagefactory",
+"org.openqa.selenium.support.ui"
+],
+"contents": [
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "AvoidLiteralsInIfCondition",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumAnnotations"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumElementLocator$WaitingFunction"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumElementLocator"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumElementLocator"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumElementLocator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumElementLocator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumElementLocator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumElementLocator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "DataflowAnomalyAnalysis",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "OnlyOneReturn",
+"className": "AppiumFieldDecorator"
+},
+{
+"violation": "DefaultPackage",
+"className": "ProxyFactory"
+},
+{
+"violation": "DefaultPackage",
+"className": "TimeOutContainer"
+},
+{
+"violation": "DefaultPackage",
+"className": "TimeOutContainer"
+}
+]
+},
+{
+"packageName": "io.appium.java_client.remote",
+"dependencies": [
+"java.lang",
+"org.openqa.selenium.remote"
+],
+"contents": []
+},
+{
+"packageName": "java.io",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.lang",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.lang.annotation",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.lang.reflect",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.net",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util.concurrent",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.xml.bind",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "net.sf.cglib.proxy",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.html5",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.internal",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.remote",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.remote.html5",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.remote.http",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.remote.internal",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.support.pagefactory",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.support.ui",
+"dependencies": [],
+"contents": []
+}
+]

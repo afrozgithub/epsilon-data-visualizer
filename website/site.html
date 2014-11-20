@@ -211,11 +211,15 @@
 		  var stepCounter = 0;
 		  var stepCounterMax = violationTypes.length - 1;
 		  	
-		  setInterval(step, 1000);
+		  setInterval(step, 2000);
 		  
 		  function step() {
 
-			if (lightUpViolations == true){
+		 nodesSel.style("fill", function(d) { return "White"; });
+				 lightUpViolations = true;
+			  
+			  
+// 			if (lightUpViolations == true){
 				  // if a node has a violation, then switch to a new color
 			 	 nodesSel.style("fill", function(d) {
 			 		var nodeContents = d.contents;
@@ -238,12 +242,12 @@
 		 		}
 		 		lightUpViolations = false;
 			  }
-			  else {
-				 // all nodes return to original color
-				 nodesSel.style("fill", function(d) { return "White"; });
-				 lightUpViolations = true;
-			  }
-		  }
+// 			  else {
+// 				 // all nodes return to original color
+// 				 nodesSel.style("fill", function(d) { return "White"; });
+// 				 lightUpViolations = true;
+// 			  }
+// 		  }
 		});
 
 		// A shape generator for Hive links, based on a source and a target.

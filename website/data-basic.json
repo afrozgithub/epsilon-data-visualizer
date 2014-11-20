@@ -1,0 +1,1499 @@
+[
+{
+"packageName": "ch.qos.logback.classic",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "ch.qos.logback.classic.joran",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "ch.qos.logback.core.joran.spi",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "ch.qos.logback.core.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.codahale.metrics",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.codahale.metrics.ganglia",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.codahale.metrics.graphite",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.codahale.metrics.jvm",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.codahale.metrics.logback",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.devbliss.doctest",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.fasterxml.jackson.core",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.fasterxml.jackson.databind",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.fasterxml.jackson.databind.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.fasterxml.jackson.dataformat.xml",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.fasterxml.jackson.module.afterburner",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.common.base",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.common.collect",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.common.io",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.common.primitives",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.binder",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.internal",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.matcher",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.name",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.persist",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.persist.jpa",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.servlet",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.google.inject.spi",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.googlecode.flyway.core",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.librato.metrics",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "com.sun.nio.file",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "conf",
+"dependencies": [
+"com.google.inject",
+"com.google.inject.binder",
+"com.google.inject.servlet",
+"controllers",
+"dao",
+"etc",
+"filters",
+"java.lang",
+"ninja",
+"ninja.application",
+"ninja.metrics",
+"ninja.servlet",
+"ninja.utils"
+],
+"contents": [
+{
+"violation": "UselessOverridingMethod",
+"className": "Ninja"
+}
+]
+},
+{
+"packageName": "controllers",
+"dependencies": [
+"com.google.common.base",
+"com.google.common.collect",
+"com.google.common.io",
+"dao",
+"etc",
+"java.io",
+"java.lang",
+"java.net",
+"java.util",
+"java.util.concurrent",
+"java.util.concurrent.atomic",
+"javax.servlet.http",
+"models",
+"ninja",
+"ninja.cache",
+"ninja.exceptions",
+"ninja.i18n",
+"ninja.session",
+"ninja.utils",
+"ninja.validation",
+"org.apache.commons.fileupload",
+"org.apache.commons.fileupload.util",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "EmptyCatchBlock",
+"className": "UdpPingController"
+}
+]
+},
+{
+"packageName": "dao",
+"dependencies": [
+"com.google.inject",
+"java.lang",
+"java.util",
+"javax.persistence",
+"models"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "UserDao"
+}
+]
+},
+{
+"packageName": "etc",
+"dependencies": [
+"java.lang",
+"java.lang.annotation",
+"java.util",
+"ninja",
+"ninja.params",
+"ninja.session"
+],
+"contents": []
+},
+{
+"packageName": "filters",
+"dependencies": [
+"java.io",
+"java.lang",
+"javax.servlet",
+"ninja",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "freemarker.cache",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "freemarker.core",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "freemarker.ext.beans",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "freemarker.log",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "freemarker.template",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "info.ganglia.gmetric4j.gmetric",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.io",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.lang",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.lang.annotation",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.lang.reflect",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.net",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.nio.charset",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.nio.file",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.nio.file.attribute",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.security",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.text",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util.concurrent",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util.concurrent.atomic",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util.logging",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "java.util.regex",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.crypto",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.crypto.spec",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.mail.internet",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.management",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.persistence",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.servlet",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.servlet.http",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "javax.validation",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "metrics_influxdb",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "models",
+"dependencies": [
+"com.google.common.collect",
+"java.lang",
+"java.util"
+],
+"contents": []
+},
+{
+"packageName": "net.sf.ehcache",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "net.spy.memcached",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "net.spy.memcached.auth",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "net.spy.memcached.transcoders",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "ninja",
+"dependencies": [
+"com.devbliss.doctest",
+"com.fasterxml.jackson.databind",
+"com.fasterxml.jackson.dataformat.xml",
+"com.google.common.base",
+"com.google.common.collect",
+"com.google.common.io",
+"com.google.inject",
+"com.google.inject.binder",
+"com.sun.nio.file",
+"java.io",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.net",
+"java.nio.charset",
+"java.nio.file",
+"java.nio.file.attribute",
+"java.util",
+"java.util.logging",
+"java.util.regex",
+"javax.management",
+"ninja.cache",
+"ninja.exceptions",
+"ninja.i18n",
+"ninja.jpa",
+"ninja.lifecycle",
+"ninja.migrations",
+"ninja.params",
+"ninja.postoffice",
+"ninja.postoffice.guice",
+"ninja.servlet",
+"ninja.session",
+"ninja.standalone",
+"ninja.utils",
+"ninja.validation",
+"org.apache.commons.codec.binary",
+"org.apache.commons.fileupload",
+"org.apache.commons.io",
+"org.apache.http.client.utils",
+"org.apache.maven.artifact",
+"org.apache.maven.model",
+"org.apache.maven.plugin",
+"org.apache.maven.plugin.logging",
+"org.apache.maven.project",
+"org.doctester",
+"org.doctester.testbrowser",
+"org.fluentlenium.adapter",
+"org.junit",
+"org.junit.runners",
+"org.junit.runners.model",
+"org.openqa.selenium",
+"org.openqa.selenium.htmlunit",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "UselessParentheses",
+"className": "BasicAuthFilterTest"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "WatchAndRestartMachine"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "WatchAndRestartMachine"
+}
+]
+},
+{
+"packageName": "ninja.application",
+"dependencies": [
+"java.lang",
+"ninja"
+],
+"contents": []
+},
+{
+"packageName": "ninja.bodyparser",
+"dependencies": [
+"com.fasterxml.jackson.core",
+"com.fasterxml.jackson.databind",
+"com.fasterxml.jackson.dataformat.xml",
+"com.google.common.base",
+"com.google.common.collect",
+"com.google.inject",
+"java.io",
+"java.lang",
+"java.lang.reflect",
+"java.util",
+"ninja",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.cache",
+"dependencies": [
+"com.google.inject",
+"java.io",
+"java.lang",
+"java.util",
+"java.util.concurrent",
+"net.sf.ehcache",
+"net.spy.memcached",
+"net.spy.memcached.auth",
+"net.spy.memcached.transcoders",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.exceptions",
+"dependencies": [
+"java.lang"
+],
+"contents": []
+},
+{
+"packageName": "ninja.i18n",
+"dependencies": [
+"com.google.common.base",
+"com.google.common.collect",
+"java.lang",
+"java.text",
+"java.util",
+"ninja",
+"ninja.utils",
+"org.apache.commons.configuration",
+"org.apache.commons.configuration.reloading",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "LangImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "LangImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "LangImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "LangImpl"
+}
+]
+},
+{
+"packageName": "ninja.jaxy",
+"dependencies": [
+"com.google.common.collect",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.util",
+"ninja",
+"ninja.application",
+"ninja.utils",
+"org.reflections",
+"org.reflections.scanners",
+"org.reflections.util",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.jpa",
+"dependencies": [
+"com.google.inject",
+"com.google.inject.binder",
+"com.google.inject.matcher",
+"com.google.inject.persist",
+"com.google.inject.persist.jpa",
+"java.lang",
+"java.lang.annotation",
+"java.util",
+"ninja.utils",
+"org.aopalliance.intercept"
+],
+"contents": []
+},
+{
+"packageName": "ninja.lifecycle",
+"dependencies": [
+"com.google.common.collect",
+"com.google.inject",
+"com.google.inject.binder",
+"com.google.inject.internal",
+"com.google.inject.matcher",
+"com.google.inject.spi",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.util",
+"java.util.concurrent.atomic",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "LifecycleServiceImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "LifecycleServiceImpl"
+}
+]
+},
+{
+"packageName": "ninja.logging",
+"dependencies": [
+"ch.qos.logback.classic",
+"ch.qos.logback.classic.joran",
+"ch.qos.logback.core.joran.spi",
+"ch.qos.logback.core.util",
+"com.google.common.io",
+"java.io",
+"java.lang",
+"java.net",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "LogbackConfigurator"
+}
+]
+},
+{
+"packageName": "ninja.metrics",
+"dependencies": [
+"ch.qos.logback.classic",
+"com.codahale.metrics",
+"com.codahale.metrics.jvm",
+"com.codahale.metrics.logback",
+"com.google.common.base",
+"com.google.inject",
+"com.google.inject.binder",
+"com.google.inject.matcher",
+"java.io",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.net",
+"java.util",
+"ninja",
+"ninja.cache",
+"ninja.exceptions",
+"ninja.utils",
+"org.aopalliance.intercept",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "EmptyFinallyBlock",
+"className": "MeteredInterceptor"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "MetricsServiceImpl"
+},
+{
+"violation": "EmptyFinallyBlock",
+"className": "MeteredInterceptor"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "MetricsServiceImpl"
+}
+]
+},
+{
+"packageName": "ninja.metrics.ganglia",
+"dependencies": [
+"com.codahale.metrics.ganglia",
+"info.ganglia.gmetric4j.gmetric",
+"java.io",
+"java.lang",
+"java.util.concurrent",
+"ninja.metrics",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.metrics.graphite",
+"dependencies": [
+"com.codahale.metrics",
+"com.codahale.metrics.graphite",
+"java.lang",
+"java.net",
+"java.util.concurrent",
+"ninja.metrics",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.metrics.influxdb",
+"dependencies": [
+"com.codahale.metrics",
+"java.lang",
+"java.util.concurrent",
+"metrics_influxdb",
+"ninja.metrics",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.metrics.librato",
+"dependencies": [
+"com.librato.metrics",
+"java.lang",
+"java.util.concurrent",
+"ninja.metrics",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.migrations",
+"dependencies": [
+"com.googlecode.flyway.core",
+"java.lang",
+"ninja.utils"
+],
+"contents": []
+},
+{
+"packageName": "ninja.params",
+"dependencies": [
+"com.google.common.collect",
+"com.google.inject",
+"com.google.inject.binder",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.util",
+"ninja",
+"ninja.session",
+"ninja.validation"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "ControllerMethodInvoker"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "ControllerMethodInvoker"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "ControllerMethodInvoker"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "ControllerMethodInvoker"
+}
+]
+},
+{
+"packageName": "ninja.postoffice",
+"dependencies": [
+"java.lang",
+"java.util"
+],
+"contents": []
+},
+{
+"packageName": "ninja.postoffice.common",
+"dependencies": [
+"java.lang",
+"java.util",
+"ninja.postoffice"
+],
+"contents": []
+},
+{
+"packageName": "ninja.postoffice.commonsmail",
+"dependencies": [
+"java.lang",
+"java.util",
+"javax.mail.internet",
+"ninja.postoffice",
+"ninja.postoffice.common",
+"ninja.utils",
+"org.apache.commons.mail"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "CommonsMailHelperImplGreenmailIntegrationTest"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "CommonsmailHelperImpl"
+}
+]
+},
+{
+"packageName": "ninja.postoffice.guice",
+"dependencies": [
+"com.google.inject",
+"java.lang",
+"ninja.postoffice",
+"ninja.postoffice.commonsmail",
+"ninja.postoffice.mock",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.postoffice.mock",
+"dependencies": [
+"java.lang",
+"java.util",
+"ninja.postoffice",
+"org.apache.commons.mail",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.scheduler",
+"dependencies": [
+"com.google.inject",
+"com.google.inject.binder",
+"com.google.inject.matcher",
+"com.google.inject.name",
+"com.google.inject.spi",
+"java.lang",
+"java.lang.annotation",
+"java.lang.reflect",
+"java.util",
+"java.util.concurrent",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.servlet",
+"dependencies": [
+"com.google.common.base",
+"com.google.inject",
+"com.google.inject.binder",
+"com.google.inject.servlet",
+"java.io",
+"java.lang",
+"java.lang.reflect",
+"java.net",
+"java.util",
+"javax.servlet",
+"javax.servlet.http",
+"ninja",
+"ninja.application",
+"ninja.bodyparser",
+"ninja.lifecycle",
+"ninja.logging",
+"ninja.scheduler",
+"ninja.servlet.async",
+"ninja.session",
+"ninja.utils",
+"ninja.validation",
+"org.apache.commons.fileupload",
+"org.apache.commons.fileupload.servlet",
+"org.apache.commons.lang3",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "AvoidUsingHardCodedIP",
+"className": "ContextImplTest"
+},
+{
+"violation": "AvoidUsingHardCodedIP",
+"className": "ContextImplTest"
+},
+{
+"violation": "AvoidUsingHardCodedIP",
+"className": "ContextImplTest"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaServletListenerTest"
+}
+]
+},
+{
+"packageName": "ninja.servlet.async",
+"dependencies": [
+"java.lang",
+"java.util.concurrent",
+"java.util.concurrent.atomic",
+"javax.servlet",
+"javax.servlet.http",
+"ninja",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": []
+},
+{
+"packageName": "ninja.servlet.util",
+"dependencies": [
+"java.lang",
+"java.lang.annotation",
+"javax.servlet.http",
+"ninja",
+"ninja.params",
+"ninja.servlet"
+],
+"contents": []
+},
+{
+"packageName": "ninja.session",
+"dependencies": [
+"java.io",
+"java.lang",
+"java.util",
+"ninja",
+"ninja.utils",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "UselessParentheses",
+"className": "SessionImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "SessionImpl"
+}
+]
+},
+{
+"packageName": "ninja.standalone",
+"dependencies": [
+"com.google.inject",
+"com.google.inject.servlet",
+"java.io",
+"java.lang",
+"java.net",
+"ninja.servlet",
+"ninja.utils",
+"org.eclipse.jetty.server",
+"org.eclipse.jetty.servlet"
+],
+"contents": [
+{
+"violation": "EmptyCatchBlock",
+"className": "StandaloneHelper"
+}
+]
+},
+{
+"packageName": "ninja.template",
+"dependencies": [
+"com.fasterxml.jackson.databind",
+"com.fasterxml.jackson.databind.util",
+"com.fasterxml.jackson.dataformat.xml",
+"com.google.common.base",
+"com.google.common.collect",
+"com.google.inject",
+"freemarker.cache",
+"freemarker.core",
+"freemarker.ext.beans",
+"freemarker.log",
+"freemarker.template",
+"java.io",
+"java.lang",
+"java.lang.reflect",
+"java.util",
+"java.util.logging",
+"java.util.regex",
+"ninja",
+"ninja.i18n",
+"ninja.session",
+"ninja.utils",
+"org.apache.commons.io",
+"org.ocpsoft.prettytime",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "UselessParentheses",
+"className": "TemplateEngineFreemarkerExceptionHandler"
+},
+{
+"violation": "UselessParentheses",
+"className": "TemplateEngineFreemarkerExceptionHandler"
+},
+{
+"violation": "UselessParentheses",
+"className": "TemplateEngineFreemarkerExceptionHandler"
+},
+{
+"violation": "UselessParentheses",
+"className": "TemplateEngineFreemarkerExceptionHandler"
+}
+]
+},
+{
+"packageName": "ninja.utils",
+"dependencies": [
+"com.fasterxml.jackson.databind",
+"com.fasterxml.jackson.dataformat.xml",
+"com.fasterxml.jackson.module.afterburner",
+"com.google.common.base",
+"com.google.common.collect",
+"com.google.common.io",
+"com.google.common.primitives",
+"com.google.inject",
+"com.google.inject.name",
+"java.io",
+"java.lang",
+"java.lang.reflect",
+"java.net",
+"java.security",
+"java.util",
+"java.util.regex",
+"javax.crypto",
+"javax.crypto.spec",
+"ninja",
+"ninja.exceptions",
+"ninja.session",
+"ninja.standalone",
+"ninja.template",
+"ninja.validation",
+"org.apache.commons.codec.binary",
+"org.apache.commons.configuration",
+"org.apache.commons.configuration.reloading",
+"org.apache.commons.fileupload",
+"org.apache.http",
+"org.apache.http.client",
+"org.apache.http.client.entity",
+"org.apache.http.client.methods",
+"org.apache.http.client.utils",
+"org.apache.http.conn",
+"org.apache.http.cookie",
+"org.apache.http.entity",
+"org.apache.http.entity.mime",
+"org.apache.http.entity.mime.content",
+"org.apache.http.impl.client",
+"org.apache.http.message",
+"org.apache.http.params",
+"org.apache.http.util",
+"org.codehaus.jackson.map",
+"org.joda.time",
+"org.joda.time.format",
+"org.junit",
+"org.slf4j"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "HttpCacheToolkitImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaPropertiesImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaPropertiesImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaPropertiesImpl"
+},
+{
+"violation": "BooleanInstantiation",
+"className": "NinjaPropertiesImplTest"
+},
+{
+"violation": "BooleanInstantiation",
+"className": "NinjaPropertiesImplTest"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "HttpCacheToolkitImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaPropertiesImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaPropertiesImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaPropertiesImpl"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaTestBrowser"
+},
+{
+"violation": "UselessParentheses",
+"className": "NinjaTestBrowser"
+},
+{
+"violation": "EmptyCatchBlock",
+"className": "NinjaTestServer"
+}
+]
+},
+{
+"packageName": "ninja.validation",
+"dependencies": [
+"java.lang",
+"java.lang.annotation",
+"java.util",
+"java.util.regex",
+"javax.validation"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "Validators$MatchesValidator"
+},
+{
+"violation": "CollapsibleIfStatements",
+"className": "Validators$MatchesValidator"
+}
+]
+},
+{
+"packageName": "org.aopalliance.intercept",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.codec.binary",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.configuration",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.configuration.reloading",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.fileupload",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.fileupload.servlet",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.fileupload.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.io",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.lang",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.lang3",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.commons.mail",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.client",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.client.entity",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.client.methods",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.client.utils",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.conn",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.cookie",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.entity",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.entity.mime",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.entity.mime.content",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.impl.client",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.message",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.params",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.http.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.maven.artifact",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.maven.model",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.maven.plugin",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.maven.plugin.logging",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.apache.maven.project",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.codehaus.jackson.map",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.doctester",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.doctester.testbrowser",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.eclipse.jetty.server",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.eclipse.jetty.servlet",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.fluentlenium.adapter",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.joda.time",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.joda.time.format",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.junit",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.junit.runners",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.junit.runners.model",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.ocpsoft.prettytime",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.openqa.selenium.htmlunit",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.reflections",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.reflections.scanners",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.reflections.util",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "org.slf4j",
+"dependencies": [],
+"contents": []
+},
+{
+"packageName": "yoda",
+"dependencies": [
+"java.lang",
+"ninja",
+"org.slf4j",
+"yoda.threads"
+],
+"contents": []
+},
+{
+"packageName": "yoda.threads",
+"dependencies": [
+"com.google.common.base",
+"java.lang",
+"java.util.concurrent",
+"java.util.concurrent.atomic",
+"ninja",
+"ninja.i18n",
+"ninja.utils",
+"org.apache.commons.lang",
+"org.slf4j",
+"yoda"
+],
+"contents": []
+}
+]
