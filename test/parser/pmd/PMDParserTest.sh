@@ -1,5 +1,7 @@
 
 
+# Run this file and compare the 2 output JSON PMD files
+
 echo "Set PARSER_TEST directory"
 PARSER_TEST=$(pwd)
 echo $PARSER_TEST
@@ -22,8 +24,8 @@ echo "Copy the output file back to the test directory"
 cp $PARSER/PMDTEST_output.json $PARSER_TEST/PMDTEST_output.json 
 
 echo "Remove old test files"
-#sudo rm $PARSER/PMDTEST_JDependParserOutput.json
-#sudo rm $PARSER/PMDTEST_PMDOutput.xml
-#sudo rm $PARSER/PMDTEST_output.json
+sudo rm $PARSER/PMDTEST_JDependParserOutput.json
+sudo rm $PARSER/PMDTEST_PMDOutput.xml
+sudo rm $PARSER/PMDTEST_output.json
 
 diff --unified $PARSER_TEST/PMDTEST_output.json $PARSER_TEST/PMD_Test_Data.json
