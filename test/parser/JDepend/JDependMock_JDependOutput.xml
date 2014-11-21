@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<JDepend>
+   <Packages>
+
+       <Package name="com.xyz.a.neverchanges">
+           <error>No stats available: package referenced, but not analyzed.</error>
+       </Package>
+
+       <Package name="epayment.adapters">
+           <Stats>
+               <TotalClasses>2</TotalClasses>
+               <ConcreteClasses>2</ConcreteClasses>
+               <AbstractClasses>0</AbstractClasses>
+               <Ca>0</Ca>
+               <Ce>2</Ce>
+               <A>0</A>
+               <I>1</I>
+               <D>0</D>
+               <V>1</V>
+           </Stats>
+
+           <AbstractClasses>
+           </AbstractClasses>
+
+           <ConcreteClasses>
+               <Class sourceFile="ABCGatewayAdapter.java">
+                   epayment.adapters.ABCGatewayAdapter
+               </Class>
+               <Class sourceFile="XYZGatewayAdapter.java">
+                   epayment.adapters.XYZGatewayAdapter
+               </Class>
+           </ConcreteClasses>
+
+           <DependsUpon>
+               <Package>epayment.framework</Package>
+               <Package>epayment.response</Package>
+           </DependsUpon>
+
+           <UsedBy>
+           </UsedBy>
+       </Package>
+
+       <Package name="epayment.commands">
+           <Stats>
+               <TotalClasses>5</TotalClasses>
+               <ConcreteClasses>5</ConcreteClasses>
+               <AbstractClasses>0</AbstractClasses>
+               <Ca>0</Ca>
+               <Ce>1</Ce>
+               <A>0</A>
+               <I>1</I>
+               <D>0</D>
+               <V>1</V>
+           </Stats>
+
+           <AbstractClasses>
+           </AbstractClasses>
+
+           <ConcreteClasses>
+               <Class sourceFile="AuthorizeCommand.java">
+                   epayment.commands.AuthorizeCommand
+               </Class>
+               <Class sourceFile="CaptureCommand.java">
+                   epayment.commands.CaptureCommand
+               </Class>
+               <Class sourceFile="CreditCommand.java">
+                   epayment.commands.CreditCommand
+               </Class>
+               <Class sourceFile="SaleCommand.java">
+                   epayment.commands.SaleCommand
+               </Class>
+               <Class sourceFile="VoidSaleCommand.java">
+                   epayment.commands.VoidSaleCommand
+               </Class>
+           </ConcreteClasses>
+
+           <DependsUpon>
+               <Package>epayment.framework</Package>
+           </DependsUpon>
+
+           <UsedBy>
+           </UsedBy>
+       </Package>
+
+       <Package name="epayment.framework">
+           <Stats>
+               <TotalClasses>6</TotalClasses>
+               <ConcreteClasses>1</ConcreteClasses>
+               <AbstractClasses>5</AbstractClasses>
+               <Ca>5</Ca>
+               <Ce>0</Ce>
+               <A>0.83</A>
+               <I>0</I>
+               <D>0.17</D>
+               <V>1</V>
+           </Stats>
+
+           <AbstractClasses>
+               <Class sourceFile="AbstractPaymentCommand.java">
+                   epayment.framework.AbstractPaymentCommand
+               </Class>
+               <Class sourceFile="IGatewayAdapter.java">
+                   epayment.framework.IGatewayAdapter
+               </Class>
+               <Class sourceFile="IPaymentCommand.java">
+                   epayment.framework.IPaymentCommand
+               </Class>
+               <Class sourceFile="IPaymentRequest.java">
+                   epayment.framework.IPaymentRequest
+               </Class>
+               <Class sourceFile="IPaymentResponse.java">
+                   epayment.framework.IPaymentResponse
+               </Class>
+           </AbstractClasses>
+
+           <ConcreteClasses>
+               <Class sourceFile="PaymentException.java">
+                   epayment.framework.PaymentException
+               </Class>
+           </ConcreteClasses>
+
+           <DependsUpon>
+           </DependsUpon>
+
+           <UsedBy>
+               <Package>epayment.adapters</Package>
+               <Package>epayment.commands</Package>
+               <Package>epayment.processor</Package>
+               <Package>epayment.request</Package>
+               <Package>epayment.response</Package>
+           </UsedBy>
+       </Package>
+
+       <Package name="epayment.processor">
+           <Stats>
+               <TotalClasses>2</TotalClasses>
+               <ConcreteClasses>2</ConcreteClasses>
+               <AbstractClasses>0</AbstractClasses>
+               <Ca>0</Ca>
+               <Ce>1</Ce>
+               <A>0</A>
+               <I>1</I>
+               <D>0</D>
+               <V>1</V>
+           </Stats>
+
+           <AbstractClasses>
+           </AbstractClasses>
+
+           <ConcreteClasses>
+               <Class sourceFile="PaymentProcessor.java">
+                   epayment.processor.PaymentProcessor
+               </Class>
+               <Class sourceFile="PaymentProcessorConfigurator.java">
+                   epayment.processor.PaymentProcessorConfigurator
+               </Class>
+           </ConcreteClasses>
+
+           <DependsUpon>
+               <Package>epayment.framework</Package>
+           </DependsUpon>
+
+           <UsedBy>
+           </UsedBy>
+       </Package>
+
+       <Package name="epayment.request">
+           <Stats>
+               <TotalClasses>1</TotalClasses>
+               <ConcreteClasses>1</ConcreteClasses>
+               <AbstractClasses>0</AbstractClasses>
+               <Ca>0</Ca>
+               <Ce>1</Ce>
+               <A>0</A>
+               <I>1</I>
+               <D>0</D>
+               <V>1</V>
+           </Stats>
+
+           <AbstractClasses>
+           </AbstractClasses>
+
+           <ConcreteClasses>
+               <Class sourceFile="PaymentRequest.java">
+                   epayment.request.PaymentRequest
+               </Class>
+           </ConcreteClasses>
+
+           <DependsUpon>
+               <Package>epayment.framework</Package>
+           </DependsUpon>
+
+           <UsedBy>
+           </UsedBy>
+       </Package>
+
+       <Package name="epayment.response">
+           <Stats>
+               <TotalClasses>1</TotalClasses>
+               <ConcreteClasses>1</ConcreteClasses>
+               <AbstractClasses>0</AbstractClasses>
+               <Ca>1</Ca>
+               <Ce>1</Ce>
+               <A>0</A>
+               <I>0.5</I>
+               <D>0.5</D>
+               <V>1</V>
+           </Stats>
+
+           <AbstractClasses>
+           </AbstractClasses>
+
+           <ConcreteClasses>
+               <Class sourceFile="PaymentResponse.java">
+                   epayment.response.PaymentResponse
+               </Class>
+           </ConcreteClasses>
+
+           <DependsUpon>
+               <Package>epayment.framework</Package>
+           </DependsUpon>
+
+           <UsedBy>
+               <Package>epayment.adapters</Package>
+           </UsedBy>
+       </Package>
+   </Packages>
+
+   <Cycles>
+   </Cycles>
+</JDepend>
