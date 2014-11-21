@@ -1,0 +1,43 @@
+[
+{
+"dependencies": [
+"packageA",
+"packageB",
+"packageC"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "ChangePassword$RequestChangePasswordTask"
+}
+],
+"packageName": "com.test.name1"
+},
+{
+"dependencies": [
+"packageC",
+"packageA"
+],
+"contents": [
+{
+"violation": "EmptyStatementNotInLoop",
+"className": "DoLogin$RequestTask"
+}
+],
+"packageName": "com.test.name2"
+},
+{
+"dependencies": [
+"packageD",
+"packageE",
+"packageF"
+],
+"contents": [
+{
+"violation": "CollapsibleIfStatements",
+"className": "DoTransfer$RequestDoGets2"
+}
+],
+"packageName": "com.test.name3"
+}
+]

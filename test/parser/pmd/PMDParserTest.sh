@@ -28,4 +28,6 @@ sudo rm $PARSER/PMDTEST_JDependParserOutput.json
 sudo rm $PARSER/PMDTEST_PMDOutput.xml
 sudo rm $PARSER/PMDTEST_output.json
 
-diff --unified $PARSER_TEST/PMDTEST_output.json $PARSER_TEST/PMD_Test_Data.json
+diff -lines $PARSER_TEST/PMDTEST_output.json $PARSER_TEST/PMD_test_data.json
+
+# If different compare manually (Keep in mind order doesn't matter)
