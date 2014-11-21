@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="5.2.0" timestamp="2014-10-17T18:07:20.511">
-	<file name="/Users/nastassiarashid/downloads/pmd/test-data/test/ChangePassword.java">
-		<violation beginline="147" endline="158" begincolumn="57" endcolumn="57" rule="CollapsibleIfStatements" ruleset="Basic" package="com.test.name1" class="ChangePassword$RequestChangePasswordTask" method="run" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.2.0/rules/java/basic.html#CollapsibleIfStatements" priority="3">
-			These nested if statements could be combined
-		</violation>
-	</file>
-	<file name="/Users/nastassiarashid/downloads/pmd/test-data/test/DoLogin.java">
-		<violation beginline="182" endline="182" begincolumn="63" endcolumn="63" rule="EmptyStatementNotInLoop" ruleset="Empty Code" package="com.test.name2" class="DoLogin$RequestTask" method="saveCreds" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.2.0/rules/java/empty.html#EmptyStatementNotInLoop" priority="3">
-			An empty statement (semicolon) not part of a loop
-		</violation>
-	</file>
-	<file name="/Users/nastassiarashid/downloads/pmd/test-data/test/DoTransfer.java">
-		<violation beginline="330" endline="339" begincolumn="33" endcolumn="33" rule="CollapsibleIfStatements" ruleset="Basic" package="com.test.name3" class="DoTransfer$RequestDoGets2" method="doInBackground" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.2.0/rules/java/basic.html#CollapsibleIfStatements" priority="3">
-			These nested if statements could be combined
-		</violation>
-	</file>
+<pmd version="5.2.0" timestamp="2014-11-20T14:43:30.601">
+<file name="/Users/nastassiarashid/Documents/Nastassia/CPSC410/ProjectTest/epsilon-data-visualizer/codebases/test/IOSTest.java">
+<violation beginline="80" endline="80" begincolumn="45" endcolumn="55" rule="AvoidLiteralsInIfCondition" ruleset="Controversial" package="test.package" class="IOSTest" method="getNamedTextField" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.2.0/rules/java/controversial.html#AvoidLiteralsInIfCondition" priority="3">
+Avoid using Literals in Conditional Statements
+</violation>
+<violation beginline="81" endline="81" begincolumn="25" endcolumn="74" rule="OnlyOneReturn" ruleset="Controversial" package="test.package" class="IOSTest" method="getNamedTextField" externalInfoUrl="http://pmd.sourceforge.net/pmd-5.2.0/rules/java/controversial.html#OnlyOneReturn" priority="3">
+A method should have only one exit point, and that should be the last statement in the method
+</violation>
+</file>
 </pmd>

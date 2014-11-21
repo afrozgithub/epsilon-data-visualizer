@@ -1,43 +1,22 @@
 [
 {
+"packageName": "test.package",
 "dependencies": [
-"packageA",
-"packageB",
-"packageC"
+"test.dependency.1",
+"test.dependency.2",
+"test.dependency.3",
+"test.dependency.4",
+"test.dependency.5"
 ],
 "contents": [
 {
-"violation": "CollapsibleIfStatements",
-"className": "ChangePassword$RequestChangePasswordTask"
-}
-],
-"packageName": "com.test.name1"
+"className": "IOSTest",
+"violation": "AvoidLiteralsInIfCondition"
 },
 {
-"dependencies": [
-"packageC",
-"packageA"
-],
-"contents": [
-{
-"violation": "EmptyStatementNotInLoop",
-"className": "DoLogin$RequestTask"
+"className": "IOSTest",
+"violation": "OnlyOneReturn"
 }
-],
-"packageName": "com.test.name2"
-},
-{
-"dependencies": [
-"packageD",
-"packageE",
-"packageF"
-],
-"contents": [
-{
-"violation": "CollapsibleIfStatements",
-"className": "DoTransfer$RequestDoGets2"
-}
-],
-"packageName": "com.test.name3"
+]
 }
 ]
